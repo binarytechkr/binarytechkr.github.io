@@ -8,7 +8,7 @@ import { SITE, withBase } from '../../../lib/site';
 		<div class="shell"><p class="legal-label">출시 전 공개 문서 초안</p><h1>천하제일 단타대회<br />개인정보처리방침</h1><p>현재 개발 빌드에서 확인된 처리와 출시 버전에 도입할 예정인 처리를 나누어 공개합니다. 실제 앱 구현을 다시 확인한 최종 방침은 앱 공개 전에 확정합니다.</p><div class="legal-meta"><span>초안 기준일: {SITE.legalDraftDate}</span><span>시행 예정일: 앱 최초 공개일</span><span>대상: Android 우선 준비 버전</span></div></div>
 	</header>
 	<div class="legal-layout shell">
-		<nav class="legal-toc" aria-label="개인정보처리방침 목차"><strong>목차</strong><ol><li><a href="#scope">적용 범위</a></li><li><a href="#summary">현재와 출시 예정 요약</a></li><li><a href="#local-data">기기 로컬 데이터</a></li><li><a href="#sharing">공유 기능</a></li><li><a href="#planned-processing">출시 예정 처리</a></li><li><a href="#retention">보관과 삭제</a></li><li><a href="#website">웹사이트와 이메일</a></li><li><a href="#changes">변경과 문의</a></li></ol></nav>
+		<nav class="legal-toc" aria-label="개인정보처리방침 목차"><strong>목차</strong><ol><li><a href="#scope">적용 범위</a></li><li><a href="#summary">현재와 출시 예정 요약</a></li><li><a href="#local-data">기기 로컬 데이터</a></li><li><a href="#sharing">공유 기능</a></li><li><a href="#planned-processing">출시 예정 처리</a></li><li><a href="#retention">보관과 삭제</a></li><li><a href="#website">웹사이트와 문의</a></li><li><a href="#changes">변경과 문의</a></li></ol></nav>
 		<article class="legal-content">
 			<div class="notice-box"><strong>중요: 아직 시행 중인 최종 방침이 아닙니다.</strong><p>계정, Firebase 원격 저장, 광고, 분석, 실결제는 출시 버전에 도입할 예정입니다. 다만 로그인 방식, 사용하는 Firebase·광고·분석 제품, 정확한 수집 항목, 보관 기간과 삭제 경로는 아직 앱 소스에서 확정되지 않았으므로 임의로 적지 않습니다.</p></div>
 
@@ -24,9 +24,9 @@ import { SITE, withBase } from '../../../lib/site';
 
 			<section id="retention"><h2>6. 보관 기간과 삭제 방법</h2><p>현재 로컬 데이터는 사용자가 앱의 저장공간을 지우거나 앱을 제거할 때까지 기기에 보관됩니다. 최신 기록은 제품 계약에 따라 최대 20개로 제한되며 새 기록이 저장되면 오래된 기록이 교체될 수 있습니다.</p><p>현재 Android 준비 구성은 앱 소유 데이터가 Android의 표준 클라우드 백업과 기기 간 전송 대상에서 제외되도록 설정되어 있습니다. 제조사별 별도 이전 도구의 동작은 다를 수 있으므로 최종 출시 기기에서 다시 확인합니다.</p><h3>현재 로컬 데이터를 직접 삭제하는 방법</h3><ol><li>Android 설정에서 <strong>앱 → 천하제일 단타대회 → 저장공간</strong>으로 이동합니다.</li><li><strong>저장공간 삭제</strong> 또는 유사한 이름의 항목을 선택합니다. 메뉴 이름은 기기마다 다를 수 있습니다.</li><li>또는 앱을 제거하면 앱의 로컬 데이터가 함께 삭제됩니다.</li></ol><p>현재 개발 빌드에는 앱 계정과 서버 저장 데이터가 없어 별도의 서버 계정 삭제 요청을 제공하지 않습니다. 출시 버전에 계정과 원격 저장을 활성화할 때 보관 기간과 앱·웹 삭제 경로를 확정해 <a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제 안내</a>에 함께 공개합니다.</p></section>
 
-			<section id="website"><h2>7. 공식 웹사이트와 이메일 문의</h2><p>이 공식 웹사이트는 GitHub Pages에 게시하는 정적 사이트로 설계되었습니다. 사이트 자체에 계정, 비밀번호 입력, 문의 폼, 결제, 광고, 외부 분석 도구 또는 쿠키 추적을 두지 않습니다.</p><p>사용자가 이메일 문의 링크를 선택하면 기기의 이메일 앱이 열립니다. 실제로 이메일을 보내는 경우 발신 주소, 메시지 내용, 첨부파일과 일반적인 이메일 전송 정보가 발신·수신 이메일 제공업체에 의해 처리될 수 있습니다. 민감한 인증 정보나 결제정보는 이메일로 보내지 마세요.</p></section>
+			<section id="website"><h2>7. 공식 웹사이트와 문의</h2><p>이 공식 웹사이트는 GitHub Pages에 게시하는 정적 사이트로 설계되었습니다. 사이트 자체에 계정, 비밀번호 입력, 문의 폼, 결제, 광고, 외부 분석 도구 또는 쿠키 추적을 두지 않습니다.</p><p>고객지원 페이지의 추가 문의 기능을 선택하면 기기의 메일 앱이 열립니다. 실제로 문의를 보내는 경우 발신 주소, 메시지 내용, 첨부파일과 일반적인 이메일 전송 정보가 발신·수신 이메일 제공업체에 의해 처리될 수 있습니다. 민감한 인증 정보나 결제정보는 보내지 마세요.</p></section>
 
-			<section id="changes"><h2>8. 방침 변경과 문의</h2><p>출시 후보 빌드에서 계정·Firebase·광고·분석·결제 구성을 검증한 뒤 실제 처리 항목과 보관·삭제 내용을 반영해 시행일을 확정합니다. 이후 데이터 처리 기능이나 출시 플랫폼이 달라지면 기준일과 변경 내용을 갱신하고, 중요한 변경은 앱 또는 공식 웹사이트의 적절한 위치에서 안내합니다.</p><p>개인정보 관련 문의: <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a></p></section>
+			<section id="changes"><h2>8. 방침 변경과 문의</h2><p>출시 후보 빌드에서 계정·Firebase·광고·분석·결제 구성을 검증한 뒤 실제 처리 항목과 보관·삭제 내용을 반영해 시행일을 확정합니다. 이후 데이터 처리 기능이나 출시 플랫폼이 달라지면 기준일과 변경 내용을 갱신하고, 중요한 변경은 앱 또는 공식 웹사이트의 적절한 위치에서 안내합니다.</p><p>개인정보 관련 문의는 <a href={withBase('/support/#contact')}>고객지원 페이지의 추가 문의 안내</a>를 이용할 수 있습니다.</p></section>
 		</article>
 	</div>
 </BaseLayout>

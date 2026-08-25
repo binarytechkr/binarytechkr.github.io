@@ -17,10 +17,10 @@
 			<rect x="84" y="84" width="64" height="64" rx="12" fill="#ff5b73" />
 		</g>
 	</g>
-	<g font-family="Arial, Segoe UI, sans-serif">
+	<g font-family="system-ui, sans-serif">
 		<text x="414" y="258" fill="#ffffff" font-size="78" font-weight="700" letter-spacing="-2">BINARYTECH</text>
 		<text x="418" y="318" fill="#69d7ca" font-size="22" font-weight="700" letter-spacing="5">INDEPENDENT GAME &amp; APP STUDIO</text>
-		<text x="418" y="375" fill="#b6c7ca" font-size="23" letter-spacing="1.5">GAMES · APPS · ONE CLEAR OWNER</text>
+		<text x="418" y="375" fill="#b6c7ca" font-size="23" letter-spacing="1.5">GAMES · APPS · CLEAR RESPONSIBILITY</text>
 	</g>
 	<g transform="translate(418 425)">
 		<rect width="62" height="16" rx="4" fill="#32c7ef" />

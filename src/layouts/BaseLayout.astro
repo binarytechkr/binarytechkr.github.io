@@ -39,7 +39,7 @@ const {
 const documentTitle = title
 	? `${title} | ${lang === 'ko' ? SITE.nameKo : SITE.nameEn}`
 	: lang === 'ko'
-		? `${SITE.nameKo} | 게임과 앱을 만드는 1인 개발 스튜디오`
+		? `${SITE.nameKo} | 게임과 앱을 만드는 독립 개발 스튜디오`
 		: `${SITE.nameEn} | Independent game and app studio`;
 const origin = Astro.site ?? Astro.url;
 const canonicalUrl = new URL(withBase(canonicalPath), origin);

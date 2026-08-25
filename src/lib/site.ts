@@ -1,9 +1,9 @@
 export const SITE = {
 	nameKo: '바이너리테크',
 	nameEn: 'Binarytech',
-	tagline: '게임과 앱을 직접 만들고 오래 다듬는 1인 개발 스튜디오',
+	tagline: '게임과 앱을 만들고 오래 다듬는 독립 개발 스튜디오',
 	description:
-		'바이너리테크는 게임과 앱을 직접 기획·개발·운영하는 1인 개발 스튜디오입니다.',
+		'바이너리테크는 게임과 앱을 기획·개발·운영하는 독립 개발 스튜디오입니다.',
 	supportEmail: 'binarytech804@gmail.com',
 	contentReviewedAt: '2026-08-25',
 	legalDraftDate: '2026-08-25',
