@@ -1,0 +1,37 @@
+---
+import ProductCard from '../../components/ProductCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import StatusPill from '../../components/StatusPill.astro';
+import { products } from '../../data/products';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="제품" description="바이너리테크가 실제로 준비하고 있는 게임과 앱을 출시 상태와 함께 확인하세요." canonicalPath="/products/">
+	<header class="page-hero">
+		<div class="shell"><p class="eyebrow">Products</p><h1>실제로 만들고 있는 제품만<br />분명한 상태와 함께 소개합니다.</h1><p>출시, 출시 준비 중, 개발 중을 구분하고 공개할 수 있는 기능과 자료만 제품 페이지에 올립니다.</p></div>
+	</header>
+	<section class="content-section surface-section">
+		<div class="shell">
+			<SectionHeading eyebrow="Status system" title="제품 상태를 이렇게 구분합니다" description="카드의 상태는 마케팅 문구가 아니라 현재 공개 가능한 단계입니다." />
+			<div class="status-guide">
+				<div><StatusPill status="released" /><p>공식 다운로드 경로가 공개된 제품</p></div>
+				<div><StatusPill status="preparing" /><p>제품은 확인 가능하지만 공식 배포 전인 제품</p></div>
+				<div><StatusPill status="development" /><p>개발 사실과 범위를 공개할 수 있는 제품</p></div>
+			</div>
+		</div>
+	</section>
+	<section class="content-section">
+		<div class="shell">
+			<SectionHeading eyebrow="Current lineup" title="현재 제품" description="현재 공개된 제품은 천하제일 단타대회 한 가지입니다. 준비되지 않은 앱 이름이나 일정을 임의로 채우지 않습니다." />
+			<div class="products-grid">{products.map((product) => <ProductCard product={product} />)}</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.status-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+	.status-guide > div { padding: 1.25rem; border: 1px solid #ced9d4; border-radius: 1rem; }
+	.status-guide p { margin: 1rem 0 0; color: #52656b; }
+	.products-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+	@media (max-width: 780px) { .status-guide, .products-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,40 @@
+---
+import SectionHeading from '../../components/SectionHeading.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { mailtoLink, SITE, withBase } from '../../lib/site';
+
+const supportMailto = mailtoLink('[천하제일 단타대회] 문의')!;
+---
+
+<BaseLayout title="고객지원·FAQ" description="바이너리테크와 천하제일 단타대회에 관한 문의 방법, 출시 상태, 데이터와 계정 안내를 확인하세요." canonicalPath="/support/">
+	<header class="page-hero"><div class="shell"><p class="eyebrow">Support</p><h1>필요한 답을 먼저 찾고,<br />남은 질문은 이메일로 보내세요.</h1><p>서버가 필요한 문의 폼이나 계정 입력란 없이, 공개 고객지원 이메일을 mailto 방식으로 연결합니다.</p></div></header>
+	<section class="content-section surface-section">
+		<div class="shell support-grid">
+			<div><SectionHeading eyebrow="Contact" title="이메일 문의" description="앱 이름, 기기 환경, 재현 순서를 함께 적어 주시면 확인에 도움이 됩니다. 비밀번호·인증번호·결제정보는 보내지 마세요." /><a class="button" href={supportMailto}>{SITE.supportEmail}로 문의하기</a></div>
+			<aside class="contact-checklist"><h2>문의에 포함하면 좋은 정보</h2><ul class="check-list"><li>문의할 앱 이름</li><li>사용한 기기와 운영체제 버전</li><li>문제가 발생한 화면과 순서</li><li>가능한 경우 개인정보를 가린 화면 캡처</li></ul><p>계정 비밀번호, 2단계 인증번호, 복구 코드, 신분증·결제수단 정보는 요청하지 않습니다.</p></aside>
+		</div>
+	</section>
+	<section class="content-section">
+		<div class="shell"><SectionHeading eyebrow="FAQ" title="자주 묻는 질문" /><div class="faq-list">
+			<details><summary>천하제일 단타대회는 어디서 다운로드할 수 있나요?</summary><div class="faq-answer"><p>현재 출시 준비 중이며 공식 다운로드 주소나 Google Play 링크가 없습니다. 공개 전에는 가짜 버튼이나 비공식 설치 파일을 제공하지 않습니다.</p></div></details>
+			<details><summary>출시일은 언제인가요?</summary><div class="faq-answer"><p>현재 공개할 수 있는 출시일은 정해지지 않았습니다. 최종 검증과 공개 절차가 끝난 뒤 이 사이트의 제품 상태를 먼저 갱신합니다.</p></div></details>
+			<details><summary>실제 주식이나 투자 계좌와 연결되나요?</summary><div class="faq-answer"><p>아닙니다. 모든 종목·시세·수익은 가상이며 실제 투자나 투자 자문을 제공하지 않습니다. 금융 계좌를 연결하거나 실제 자산을 거래하지 않습니다.</p></div></details>
+			<details><summary>게임 결과나 다이아를 현금으로 바꿀 수 있나요?</summary><div class="faq-answer"><p>아닙니다. 게임 결과와 가상 재화에는 현금 가치가 없으며 현금 보상·상금·출금·환전을 제공하지 않습니다. 출시 버전에는 스토어를 통한 유료 상품을 도입할 예정이지만, 구매한 재화나 아이템도 현금으로 바꿀 수 없습니다.</p></div></details>
+			<details><summary>게임 진행은 어디에 저장되나요?</summary><div class="faq-answer"><p>현재 개발 빌드는 완주 기록, 무료 해금, 꾸미기와 화면·차트·언어 설정을 기기에 저장합니다. 출시 버전에는 계정과 Firebase 원격 저장을 함께 도입할 예정이며, 동기화 대상과 보관·삭제 방식은 실제 구현을 확인한 뒤 앱 공개 전에 정책 문서에 확정합니다.</p></div></details>
+			<details><summary>계정 삭제는 어떻게 하나요?</summary><div class="faq-answer"><p>현재 개발 빌드에는 계정 생성·로그인 기능이 없어 지금 삭제할 서버 계정은 없습니다. 출시 버전에 계정을 도입할 때 앱 안의 삭제 경로와 웹 요청 절차를 함께 공개합니다. 기기에 저장된 진행은 현재 Android의 앱 저장공간 삭제 또는 앱 제거로 지울 수 있습니다. 자세한 상태는 <a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제 안내</a>를 확인하세요.</p></div></details>
+			<details><summary>Android 외 플랫폼도 지원하나요?</summary><div class="faq-answer"><p>현재는 Android 우선 출시를 준비하고 있습니다. iOS 출시 일정은 확정해 공개하지 않았습니다.</p></div></details>
+		</div></div>
+	</section>
+	<section class="content-section compact dark-section"><div class="shell policy-links"><div><p class="eyebrow">Policies</p><h2>제품 정책 문서</h2></div><ul class="inline-links"><li><a href={withBase('/privacy/danta/')}>개인정보처리방침</a></li><li><a href={withBase('/terms/danta/')}>이용약관</a></li><li><a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제</a></li></ul></div></section>
+</BaseLayout>
+
+<style>
+	.support-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr); gap: clamp(2rem, 8vw, 7rem); align-items: start; }
+	.contact-checklist { padding: clamp(1.4rem, 4vw, 2rem); border: 1px solid #ced9d4; border-radius: 1rem; background: #f4f6f3; }
+	.contact-checklist h2 { margin-bottom: 1.3rem; font-size: 1.35rem; }
+	.contact-checklist > p { margin: 1.5rem 0 0; padding-top: 1rem; border-top: 1px solid #ced9d4; color: #52656b; font-size: .83rem; }
+	.policy-links { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+	.policy-links h2 { margin: 0; font-size: clamp(1.9rem, 4vw, 3rem); }
+	.policy-links a { color: white; font-weight: 750; }
+	@media (max-width: 780px) { .support-grid { grid-template-columns: 1fr; } .policy-links { align-items: flex-start; flex-direction: column; } }
+</style>

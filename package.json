@@ -1,0 +1,29 @@
+{
+  "name": "binarytech",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "check:html": "html-validate \"dist/**/*.html\"",
+    "check:links": "node scripts/check-links.mjs",
+    "validate": "astro check && astro build && html-validate \"dist/**/*.html\" && node scripts/check-links.mjs",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.6"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "html-validate": "^11.10.0",
+    "typescript": "^5.9.3"
+  }
+}

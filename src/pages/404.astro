@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/site';
+---
+
+<BaseLayout title="페이지를 찾을 수 없습니다" description="요청한 바이너리테크 페이지를 찾을 수 없습니다." canonicalPath="/404/" noindex>
+	<section class="not-found"><div class="shell"><p class="error-code">0100 / NOT FOUND</p><h1>요청한 페이지가<br />아직 없거나 이동했습니다.</h1><p>주소를 다시 확인하거나 제품 허브에서 필요한 정보를 찾아보세요.</p><div class="button-row"><a class="button button-on-dark" href={withBase('/')}>메인으로</a><a class="button button-ghost-dark" href={withBase('/products/')}>제품 보기</a></div></div></section>
+</BaseLayout>
+
+<style>
+	.not-found { min-height: 66vh; display: grid; place-items: center; padding-block: 6rem; background: #0b1c26; color: white; }
+	.not-found .shell { max-width: 58rem; }
+	.error-code { color: #69d8cb; font-size: .78rem; font-weight: 800; letter-spacing: .15em; }
+	.not-found h1 { margin-bottom: 1.4rem; }
+	.not-found > .shell > p:not(.error-code) { max-width: 36rem; margin-bottom: 2rem; color: #b9c9cc; font-size: 1.1rem; }
+</style>

@@ -1,0 +1,56 @@
+---
+import { koNavigation, SITE, withBase } from '../lib/site';
+
+interface Props {
+	lang?: 'ko' | 'en';
+}
+
+const { lang = 'ko' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const relativePath = Astro.url.pathname.startsWith(base)
+	? `/${Astro.url.pathname.slice(base.length)}`
+	: Astro.url.pathname;
+const isActive = (path: string) =>
+	path === '/' ? relativePath === '/' : relativePath.startsWith(path);
+const navigation =
+	lang === 'ko'
+		? koNavigation.map((item) => ({ ...item, href: withBase(item.path) }))
+		: [
+				{ label: 'Studio', path: '/en/#studio', href: withBase('/en/#studio') },
+				{ label: 'Product', path: '/en/#product', href: withBase('/en/#product') },
+				{ label: 'Support', path: '/en/#support', href: withBase('/en/#support') },
+			];
+---
+
+<header class="site-header">
+	<div class="header-inner shell">
+		<a class="site-brand" href={withBase(lang === 'ko' ? '/' : '/en/')} aria-label={lang === 'ko' ? '바이너리테크 메인' : 'Binarytech home'}>
+			<span class="brand-signal" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+			<span class="brand-copy">
+				<strong>{lang === 'ko' ? SITE.nameKo : SITE.nameEn}</strong>
+				<small>{lang === 'ko' ? 'BINARYTECH' : 'ONE-PERSON STUDIO'}</small>
+			</span>
+		</a>
+
+		<nav class="desktop-nav" aria-label={lang === 'ko' ? '주요 메뉴' : 'Primary navigation'}>
+			{navigation.map((item) => (
+				<a href={item.href} aria-current={lang === 'ko' && isActive(item.path) ? 'page' : undefined}>{item.label}</a>
+			))}
+			<a class="language-link" href={withBase(lang === 'ko' ? '/en/' : '/')} lang={lang === 'ko' ? 'en' : 'ko'}>
+				{lang === 'ko' ? 'EN' : '한국어'}
+			</a>
+		</nav>
+
+		<details class="mobile-menu">
+			<summary aria-label={lang === 'ko' ? '메뉴 열기' : 'Open menu'}>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</summary>
+			<nav aria-label={lang === 'ko' ? '모바일 메뉴' : 'Mobile navigation'}>
+				{navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+				<a href={withBase(lang === 'ko' ? '/en/' : '/')} lang={lang === 'ko' ? 'en' : 'ko'}>{lang === 'ko' ? 'English' : '한국어'}</a>
+			</nav>
+		</details>
+	</div>
+</header>

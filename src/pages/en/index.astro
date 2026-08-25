@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { dantaProduct } from '../../data/products';
+import { SITE, withBase } from '../../lib/site';
+---
+
+<BaseLayout lang="en" title="Independent game and app studio" description="Binarytech is an independent one-person studio building games and apps. Its first product, Danta Championship, is preparing for release." canonicalPath="/en/" alternatePath="/">
+	<section class="en-hero">
+		<div class="en-hero-grid shell">
+			<div><p class="eyebrow">BINARYTECH · INDEPENDENT STUDIO</p><h1>Games and apps,<br />built with <span>one clear owner.</span></h1><p>{SITE.nameEn} is an independent one-person studio that plans, develops, and operates its own games and apps. Its first game, <strong>Danta Championship</strong>, is currently preparing for release.</p><div class="button-row"><a class="button button-on-dark" href="#product">Meet the first product</a><a class="button button-ghost-dark" href="#studio">About the studio</a></div></div>
+			<div class="en-binary" role="group" aria-label="Build, verify, release, improve"><span>01</span><strong>BUILD</strong><span>10</span><strong>VERIFY</strong><span>11</span><strong>RELEASE</strong><span>100</span><strong>IMPROVE</strong></div>
+		</div>
+	</section>
+
+	<section class="content-section surface-section" id="studio">
+		<div class="shell en-two-column"><div><p class="eyebrow">The studio</p><h2>Small by design.<br />Precise about what is real.</h2></div><div><p>Binarytech does not present itself as a large team. One developer owns product planning, engineering, quality checks, release preparation, and user support.</p><p>The studio publishes only what can be verified from the product itself: no invented release dates, user numbers, awards, partners, or reviews.</p></div></div>
+	</section>
+
+	<section class="content-section en-product" id="product">
+		<div class="shell en-product-grid">
+			<div class="en-product-copy"><div class="en-title-row"><img src={withBase(dantaProduct.icon)} width="512" height="512" alt="Danta Championship app icon" /><span class="status-pill status-preparing"><span aria-hidden="true"></span>Preparing for release</span></div><p class="eyebrow">DANTA LEAGUE // ARENA</p><h2>Danta Championship</h2><p class="en-lead">Read a fictional seven-stock market and compete in fast, focused trading matches.</p><ul class="fact-list"><li>Five-minute matches and one-minute Lightning mode</li><li>Market and limit orders with order-book fills</li><li>Charts, volume, moving averages, news, and five equipment choices</li><li>Completion records, 13 achievements, and free progression cosmetics</li><li>Result cards and challenge codes for replaying the same fictional market</li><li>Korean and English interfaces</li></ul><div class="en-release-note"><strong>No download link yet</strong><p>The game has not been publicly released. There is no official store URL or announced release date.</p></div></div>
+			<figure class="en-product-screen"><img src={withBase('/assets/products/danta/screens/03-market.png')} width="1080" height="1920" alt="A seven-stock fictional market board in Danta Championship" /><figcaption>Actual Android development-build screen. Final UI may change before release.</figcaption></figure>
+		</div>
+	</section>
+
+	<section class="content-section en-notice"><div class="shell en-two-column"><div><p class="eyebrow">Important notice</p><h2>A game simulation,<br />not real investing.</h2></div><div class="simulation-card"><p>All stocks, prices, and returns in this game are fictional. This is not real investing, and the game does not provide investment advice. Game results and virtual items have no cash value; no cash rewards, prizes, redemption, or cash-out are offered.</p></div></div></section>
+
+	<section class="content-section surface-section" id="support">
+		<div class="shell en-info-grid"><article><p class="eyebrow">Data and release plan</p><h2>Current build, planned services</h2><p>The current development build stores progress and settings locally. The planned public release will add accounts, Firebase-backed remote storage, advertising, analytics, and in-app purchases. Exact processing details and the account-deletion path will be published only after the implementation is verified and before the app goes live.</p><a href={withBase('/privacy/danta/')}>Read the full privacy draft in Korean <span aria-hidden="true">→</span></a></article><article><p class="eyebrow">Support</p><h2>Email support</h2><p>Contact <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>. This static site does not use a server-side contact form.</p><a href={withBase('/support/')}>Open support and FAQ in Korean <span aria-hidden="true">→</span></a></article></div>
+	</section>
+
+	<section class="content-section compact dark-section" id="privacy"><div class="shell en-policy-row"><div><p class="eyebrow">Product documents</p><h2>Policies and deletion status</h2></div><ul class="inline-links"><li><a href={withBase('/privacy/danta/')}>Privacy (KO)</a></li><li><a href={withBase('/terms/danta/')}>Terms (KO)</a></li><li><a href={withBase('/account-deletion/danta/')}>Account and data deletion</a></li></ul></div></section>
+</BaseLayout>
+
+<style>
+	.en-hero { padding-block: clamp(5.5rem, 10vw, 9rem); background: #0b1c26; color: white; }
+	.en-hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(18rem, .7fr); gap: clamp(3rem, 9vw, 8rem); align-items: center; }
+	.en-hero .eyebrow { color: #69d8cb; }
+	.en-hero h1 { margin-bottom: 1.5rem; }
+	.en-hero h1 span { color: #69d8cb; }
+	.en-hero p:not(.eyebrow) { max-width: 46rem; margin-bottom: 2rem; color: #bdcbce; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+	.en-hero strong { color: white; }
+	.en-binary { display: grid; grid-template-columns: 4rem 1fr; border-top: 1px solid rgb(255 255 255 / 18%); }
+	.en-binary span, .en-binary strong { padding: .9rem; border-bottom: 1px solid rgb(255 255 255 / 13%); }
+	.en-binary span { color: #55d1c4; font-size: .75rem; letter-spacing: .1em; }
+	.en-binary strong { border-left: 1px solid rgb(255 255 255 / 13%); font-size: .82rem; letter-spacing: .08em; }
+	.en-two-column { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 9vw, 8rem); align-items: start; }
+	.en-two-column h2 { margin: 0; }
+	.en-two-column > div:last-child { color: #3e535b; font-size: 1.08rem; }
+	.en-product { background: #091923; color: white; }
+	.en-product-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .55fr); gap: clamp(3rem, 8vw, 7rem); align-items: center; }
+	.en-title-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
+	.en-title-row img { width: 5rem; height: 5rem; border-radius: 1.1rem; }
+	.en-product-copy .eyebrow { color: #50d0ee; }
+	.en-product-copy h2 { margin-bottom: .8rem; font-size: clamp(2.8rem, 6vw, 5rem); }
+	.en-lead { margin-bottom: 1.6rem; color: #c4d2d4; font-size: 1.16rem; }
+	.en-product-copy .fact-list { color: #c3d0d2; }
+	.en-product-copy .fact-list li::before { background: #32c7ef; }
+	.en-release-note { margin-top: 2rem; padding: 1.1rem; border: 1px solid rgb(255 255 255 / 15%); border-left: 4px solid #ff5b73; border-radius: .7rem; }
+	.en-release-note strong { color: #ff91a0; }
+	.en-release-note p { margin: .35rem 0 0; color: #b4c4c7; }
+	.en-product-screen { margin: 0; overflow: hidden; border: 1px solid rgb(50 199 239 / 35%); border-radius: 1.5rem; background: #071722; box-shadow: 0 22px 70px rgb(0 0 0 / 30%); }
+	.en-product-screen img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+	.en-product-screen figcaption { padding: .8rem 1rem; color: #9eb3b7; font-size: .78rem; }
+	.en-notice { background: #12313c; color: white; }
+	.en-notice .eyebrow { color: #ff8f9e; }
+	.en-notice .simulation-card { padding: 2rem; border: 1px solid rgb(255 91 115 / 48%); border-radius: 1rem; background: rgb(5 20 29 / 35%); }
+	.en-notice .simulation-card p { margin: 0; color: #d5e0e1; }
+	.en-info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+	.en-info-grid article { padding: clamp(1.4rem, 4vw, 2rem); border: 1px solid #ced9d4; border-radius: 1rem; }
+	.en-info-grid h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+	.en-info-grid article > p:not(.eyebrow) { color: #52656b; }
+	.en-info-grid a { color: #0f6e65; font-weight: 750; }
+	.en-policy-row { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+	.en-policy-row h2 { margin: 0; font-size: clamp(1.9rem, 4vw, 3rem); }
+	.en-policy-row a { color: white; font-weight: 750; }
+	@media (max-width: 850px) { .en-hero-grid, .en-two-column, .en-product-grid { grid-template-columns: 1fr; } .en-binary { max-width: 35rem; } .en-product-screen { width: min(100%, 24rem); justify-self: center; } }
+	@media (max-width: 680px) { .en-info-grid { grid-template-columns: 1fr; } .en-policy-row { align-items: flex-start; flex-direction: column; } }
+</style>

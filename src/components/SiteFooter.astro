@@ -1,0 +1,39 @@
+---
+import { SITE, withBase } from '../lib/site';
+
+interface Props {
+	lang?: 'ko' | 'en';
+}
+
+const { lang = 'ko' } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="footer-grid shell">
+		<div class="footer-brand">
+			<strong>{lang === 'ko' ? SITE.nameKo : SITE.nameEn}</strong>
+			<p>{lang === 'ko' ? SITE.tagline : 'An independent one-person studio building games and apps.'}</p>
+		</div>
+		<div>
+			<h2>{lang === 'ko' ? '바로가기' : 'Explore'}</h2>
+			<ul>
+				<li><a href={withBase('/products/')}>{lang === 'ko' ? '제품' : 'Products'}</a></li>
+				<li><a href={withBase('/about/')}>{lang === 'ko' ? '회사 소개' : 'About'}</a></li>
+				<li><a href={withBase('/support/')}>{lang === 'ko' ? '고객지원' : 'Support'}</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2>{lang === 'ko' ? '천하제일 단타대회' : 'Danta Championship'}</h2>
+			<ul>
+				<li><a href={withBase('/privacy/danta/')}>{lang === 'ko' ? '개인정보처리방침' : 'Privacy policy (Korean)'}</a></li>
+				<li><a href={withBase('/terms/danta/')}>{lang === 'ko' ? '이용약관' : 'Terms (Korean)'}</a></li>
+				<li><a href={withBase('/account-deletion/danta/')}>{lang === 'ko' ? '계정 및 데이터 삭제' : 'Account and data deletion'}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer-bottom shell">
+		<p>© {year} {lang === 'ko' ? SITE.nameKo : SITE.nameEn}. All rights reserved.</p>
+		<p>{lang === 'ko' ? '외부 분석·광고·쿠키 추적을 사용하지 않는 정적 사이트' : 'A static site without analytics, ads, or tracking cookies.'}</p>
+	</div>
+</footer>

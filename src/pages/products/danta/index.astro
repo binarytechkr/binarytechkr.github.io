@@ -1,0 +1,133 @@
+---
+import ScreenshotGallery from '../../../components/ScreenshotGallery.astro';
+import SectionHeading from '../../../components/SectionHeading.astro';
+import StatusPill from '../../../components/StatusPill.astro';
+import { dantaProduct } from '../../../data/products';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { withBase } from '../../../lib/site';
+
+const productSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'SoftwareApplication',
+	name: dantaProduct.name,
+	alternateName: dantaProduct.nameEn,
+	applicationCategory: 'GameApplication',
+	operatingSystem: 'Android',
+	inLanguage: ['ko', 'en'],
+	description: dantaProduct.summary,
+	url: new URL(withBase('/products/danta/'), Astro.site ?? Astro.url).toString(),
+};
+---
+
+<BaseLayout title="천하제일 단타대회" description="7개 가상 종목의 흐름을 읽고 5분 단타와 1분 번개단타에 도전하는 모바일 게임. 현재 출시 준비 중입니다." canonicalPath="/products/danta/" image={dantaProduct.featureGraphic} imageAlt="천하제일 단타대회 대표 이미지" imageWidth={1024} imageHeight={500} pageClass="danta-page" schema={productSchema}>
+	<section class="danta-hero">
+		<div class="danta-hero-grid shell">
+			<div class="danta-copy">
+				<div class="product-title-row"><img src={withBase(dantaProduct.icon)} width="512" height="512" alt="" /><div><StatusPill status={dantaProduct.status} /><p lang="en">DANTA LEAGUE // ARENA</p></div></div>
+				<h1>
+					<span class="hero-line">가상 시장을 읽고,</span>
+					<span class="hero-line accent">5분 안에 승부하다.</span>
+				</h1>
+				<p>7개 가상 종목의 가격과 거래량을 읽고, 시장가·지정가 주문을 체결하는 짧은 모바일 경기입니다. 장비를 고르고 기록과 꾸미기를 쌓으며 같은 장세를 친구와 공유할 수 있습니다.</p>
+				<div class="button-row"><a class="button danta-primary" href="#screens">실제 화면 보기</a><a class="button button-ghost-dark" href="#release-status">출시 상태 확인</a></div>
+			</div>
+			<div class="danta-hero-visual">
+				<img src={withBase('/assets/products/danta/screens/01-home.png')} width="1080" height="1920" alt="천하제일 단타대회 5분 단타 홈 화면" />
+				<div class="visual-tag"><span>01</span><strong>5 MIN ARENA</strong><small>실제 개발 빌드 화면</small></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="danta-quickfacts" aria-label="제품 핵심 정보">
+		<div class="shell"><div><strong>7</strong><span>가상 종목</span></div><div><strong>5:00</strong><span>메인 단타 경기</span></div><div><strong>1:00</strong><span>번개단타</span></div><div><strong>KO / EN</strong><span>지원 언어</span></div></div>
+	</section>
+
+	<section class="content-section surface-section">
+		<div class="shell">
+			<SectionHeading eyebrow="Core experience" title="읽고, 주문하고, 기록을 남기는 한 경기" description="앱 저장소에서 실제로 구현·검증된 제품 흐름을 기준으로 정리했습니다." />
+			<div class="danta-feature-grid">
+				<article><span>01</span><h3>두 가지 경기 길이</h3><p>7개 가상 종목을 대상으로 하는 5분 단타와, 같은 5분 장세를 60초에 재생하는 1분 번개단타를 제공합니다.</p></article>
+				<article><span>10</span><h3>시장가·지정가 주문</h3><p>호가와 유동성을 보며 시장가 또는 지정가 주문을 제출하고, 대기·부분 체결·체결·취소 상태를 확인합니다.</p></article>
+				<article><span>11</span><h3>차트와 장비</h3><p>캔들·거래량·이동평균·가격 표식을 읽고, 급증과 추세를 살피는 5개 장비 중 경기용 장비를 선택합니다.</p></article>
+				<article><span>100</span><h3>기록과 꾸미기</h3><p>완주 기록, 13개 업적, 최대 20개의 최근 기록과 무료 진행 보상으로 화면·차트·결과 카드를 꾸밉니다.</p></article>
+				<article><span>101</span><h3>결과 카드와 도전 코드</h3><p>가상 손익과 모의게임 고지가 포함된 결과 카드를 공유하고, 도전 코드로 같은 종목·가격·거래량·뉴스 흐름을 플레이합니다.</p></article>
+				<article><span>110</span><h3>로컬 저장과 출시 확장</h3><p>현재 개발 빌드는 진행과 설정을 기기에 저장합니다. 출시 버전에는 계정·Firebase 원격 저장·광고·분석·실결제를 도입할 예정입니다.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section danta-screens" id="screens">
+		<div class="shell"><SectionHeading eyebrow="Actual screens" title="실제 앱 화면" description="앱 저장소에 보존된 Android 개발 빌드 화면입니다. 임의로 만든 목업이나 외부 이미지를 사용하지 않았습니다." /><ScreenshotGallery screenshots={dantaProduct.screenshots} /></div>
+	</section>
+
+	<section class="content-section simulation-section">
+		<div class="shell simulation-grid"><div><p class="eyebrow">Important notice</p><h2>투자가 아니라,<br />가상 시세로 즐기는 게임입니다.</h2></div><div class="simulation-card"><strong>모의 투자 게임 안내</strong><p>이 게임의 종목·시세·수익은 모두 가상입니다. 실제 투자가 아니며 투자 자문을 제공하지 않습니다. 게임 결과와 재화에는 현금 가치가 없고, 현금 보상·상금·환전도 제공하지 않습니다.</p></div></div>
+	</section>
+
+	<section class="content-section surface-section" id="release-status">
+		<div class="shell release-grid">
+			<div><SectionHeading eyebrow="Release status" title="현재 출시 준비 중입니다" description="공식 스토어 다운로드 주소와 출시일은 아직 없습니다. 따라서 다운로드 버튼이나 Google Play 링크를 표시하지 않습니다." /><div class="notice-box"><strong>지금 확인할 수 있는 범위</strong><p>Android 우선 출시를 위한 앱 코드·한국어/영어 화면·로컬 저장·출시 자산을 준비하고 있습니다. 최종 검증과 공개 절차는 남아 있습니다.</p></div></div>
+			<div class="release-checklist"><div class="done"><span aria-hidden="true">✓</span><p><strong>현재 구현 확인</strong><small>핵심 게임 흐름 · 한국어/영어 · 로컬 저장</small></p></div><div class="pending"><span aria-hidden="true">…</span><p><strong>출시 전 진행</strong><small>최종 검증 · 공개 문구/정책 확정 · 스토어 절차</small></p></div><div class="pending"><span aria-hidden="true">…</span><p><strong>출시 버전 도입 예정</strong><small>계정 · Firebase 원격 저장 · 광고 · 분석 · 실결제</small></p></div></div>
+		</div>
+	</section>
+
+	<section class="content-section compact danta-links"><div class="shell"><div><p class="eyebrow">Product documents</p><h2>지원과 정책 문서</h2></div><ul class="inline-links"><li><a href={withBase('/support/')}>고객지원·FAQ</a></li><li><a href={withBase('/privacy/danta/')}>개인정보처리방침</a></li><li><a href={withBase('/terms/danta/')}>이용약관</a></li><li><a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제</a></li></ul></div></section>
+</BaseLayout>
+
+<style>
+	.danta-hero { overflow: hidden; padding-block: clamp(4.5rem, 9vw, 8rem); background: #071722; color: white; }
+	.danta-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(18rem, .65fr); gap: clamp(3rem, 8vw, 7rem); align-items: center; }
+	.product-title-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+	.product-title-row img { width: 5.5rem; height: 5.5rem; border-radius: 1.25rem; box-shadow: 0 16px 40px rgb(0 0 0 / 32%); }
+	.product-title-row > div { display: grid; justify-items: start; gap: .65rem; }
+	.product-title-row p { margin: 0; color: #6edbf5; font-size: .72rem; font-weight: 800; letter-spacing: .15em; }
+	.danta-copy h1 { margin-bottom: 1.5rem; font-size: clamp(2.25rem, 5.2vw, 4.8rem); }
+	.danta-copy h1 .hero-line { display: block; white-space: nowrap; }
+	.danta-copy h1 .accent { color: #38c7eb; }
+	.danta-copy > p { max-width: 45rem; margin-bottom: 2rem; color: #bdcdd0; font-size: clamp(1.05rem, 2vw, 1.23rem); }
+	.danta-primary { background: #24bfe7; color: #06151d; }
+	.danta-primary:hover { background: #62d6f2; }
+	.danta-hero-visual { position: relative; width: min(100%, 25rem); justify-self: end; padding: .75rem; border: 1px solid rgb(50 199 239 / 42%); border-radius: 2rem; background: rgb(50 199 239 / 8%); transform: rotate(1.6deg); }
+	.danta-hero-visual::before { position: absolute; inset: 12% -35% auto auto; width: 65%; height: 1px; background: #ff5b73; box-shadow: 0 1.4rem 0 #ff5b73, 0 2.8rem 0 #32c7ef; content: ""; }
+	.danta-hero-visual img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 1.45rem; box-shadow: 0 28px 80px rgb(0 0 0 / 35%); }
+	.visual-tag { position: absolute; right: -1.5rem; bottom: 2rem; display: grid; min-width: 12.5rem; grid-template-columns: 2rem 1fr; padding: .85rem 1rem; border-left: 4px solid #ff5b73; border-radius: .4rem; background: #f7faf9; color: #10222a; box-shadow: 0 12px 35px rgb(0 0 0 / 28%); }
+	.visual-tag span { grid-row: 1 / 3; color: #c72a44; font-size: .75rem; font-weight: 900; }
+	.visual-tag strong { font-size: .78rem; letter-spacing: .08em; }
+	.visual-tag small { color: #607076; }
+	.danta-quickfacts { background: #0f2934; color: white; }
+	.danta-quickfacts .shell { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.danta-quickfacts .shell > div { display: grid; gap: .2rem; padding: 1.5rem; border-inline-start: 1px solid rgb(255 255 255 / 10%); }
+	.danta-quickfacts .shell > div:last-child { border-inline-end: 1px solid rgb(255 255 255 / 10%); }
+	.danta-quickfacts strong { color: #55d2ee; font-size: 1.45rem; letter-spacing: -.02em; }
+	.danta-quickfacts span { color: #a9bdc1; font-size: .78rem; }
+	.danta-feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+	.danta-feature-grid article { padding: 1.5rem; border: 1px solid #ced9d4; border-radius: 1rem; background: #fff; }
+	.danta-feature-grid span { display: block; margin-bottom: 1.4rem; color: #0b7089; font-size: .75rem; font-weight: 900; letter-spacing: .13em; }
+	.danta-feature-grid h3 { margin-bottom: .75rem; font-size: 1.25rem; }
+	.danta-feature-grid p { margin: 0; color: #52656b; }
+	.danta-screens { background: #091923; color: white; }
+	.danta-screens :global(.section-heading .eyebrow) { color: #4ed2ef; }
+	.danta-screens :global(.section-heading > p:last-child) { color: #a9bec2; }
+	.simulation-section { background: #122e38; color: white; }
+	.simulation-grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(2rem, 7vw, 6rem); align-items: center; }
+	.simulation-grid .eyebrow { color: #ff8191; }
+	.simulation-grid h2 { margin: 0; }
+	.simulation-card { padding: clamp(1.5rem, 4vw, 2.4rem); border: 1px solid rgb(255 91 115 / 50%); border-radius: 1.2rem; background: rgb(4 18 26 / 45%); }
+	.simulation-card strong { display: block; margin-bottom: .8rem; color: #ff8b99; }
+	.simulation-card p { margin: 0; color: #d5e0e1; }
+	.release-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(20rem, .9fr); gap: clamp(2rem, 7vw, 6rem); align-items: center; }
+	.release-checklist { display: grid; gap: .75rem; }
+	.release-checklist > div { display: grid; grid-template-columns: 2.5rem 1fr; gap: .8rem; align-items: center; padding: 1rem; border: 1px solid #ced9d4; border-radius: .9rem; }
+	.release-checklist > div > span { display: grid; width: 2.4rem; height: 2.4rem; place-items: center; border-radius: .6rem; background: #eaf0ed; font-weight: 900; }
+	.release-checklist .done > span { background: #d9eee9; color: #0f6e65; }
+	.release-checklist .pending > span { background: #fff0cc; color: #8a5e0b; }
+	.release-checklist p { display: grid; gap: .2rem; margin: 0; }
+	.release-checklist small { color: #52656b; }
+	.danta-links { background: #dce8e4; }
+	.danta-links .shell { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+	.danta-links h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+	.danta-links a { color: #0f6e65; font-weight: 750; }
+	@media (max-width: 900px) { .danta-hero-grid, .simulation-grid, .release-grid { grid-template-columns: 1fr; } .danta-hero-visual { justify-self: center; } .danta-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 680px) { .danta-quickfacts .shell { grid-template-columns: repeat(2, 1fr); } .danta-quickfacts .shell > div:nth-child(3) { border-top: 1px solid rgb(255 255 255 / 10%); } .danta-feature-grid { grid-template-columns: 1fr; } .danta-links .shell { align-items: flex-start; flex-direction: column; } }
+	@media (max-width: 480px) { .product-title-row img { width: 4.6rem; height: 4.6rem; } .danta-hero-visual { width: 88%; } .visual-tag { right: -.8rem; } }
+</style>
