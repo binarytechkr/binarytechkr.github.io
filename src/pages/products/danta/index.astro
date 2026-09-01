@@ -19,7 +19,7 @@ const productSchema = {
 };
 ---
 
-<BaseLayout title="천하제일 단타대회" description="7개 가상 종목의 흐름을 읽고 5분 단타와 1분 번개단타에 도전하는 모바일 게임. 현재 출시 준비 중입니다." canonicalPath="/products/danta/" image={dantaProduct.featureGraphic} imageAlt="천하제일 단타대회 대표 이미지" imageWidth={1024} imageHeight={500} pageClass="danta-page" schema={productSchema}>
+<BaseLayout title="천하제일 단타대회" description="7개 가상 종목의 흐름을 읽고 5분 단타와 1분 번개단타에 도전하는 Android 모바일 게임입니다." canonicalPath="/products/danta/" image={dantaProduct.featureGraphic} imageAlt="천하제일 단타대회 대표 이미지" imageWidth={1024} imageHeight={500} pageClass="danta-page" schema={productSchema}>
 	<section class="danta-hero">
 		<div class="danta-hero-grid shell">
 			<div class="danta-copy">
@@ -33,7 +33,7 @@ const productSchema = {
 			</div>
 			<div class="danta-hero-visual">
 				<img src={withBase('/assets/products/danta/screens/01-home.png')} width="1080" height="1920" alt="천하제일 단타대회 5분 단타 홈 화면" />
-				<div class="visual-tag"><span>01</span><strong>5 MIN ARENA</strong><small>실제 개발 빌드 화면</small></div>
+				<div class="visual-tag"><span>01</span><strong>5 MIN ARENA</strong><small>실제 Android 앱 화면</small></div>
 			</div>
 		</div>
 	</section>
@@ -51,13 +51,13 @@ const productSchema = {
 				<article><span>11</span><h3>차트와 장비</h3><p>캔들·거래량·이동평균·가격 표식을 읽고, 급증과 추세를 살피는 5개 장비 중 경기용 장비를 선택합니다.</p></article>
 				<article><span>100</span><h3>기록과 꾸미기</h3><p>완주 기록, 13개 업적, 최대 20개의 최근 기록과 무료 진행 보상으로 화면·차트·결과 카드를 꾸밉니다.</p></article>
 				<article><span>101</span><h3>결과 카드와 도전 코드</h3><p>가상 손익과 모의게임 고지가 포함된 결과 카드를 공유하고, 도전 코드로 같은 종목·가격·거래량·뉴스 흐름을 플레이합니다.</p></article>
-				<article><span>110</span><h3>로컬 저장과 출시 확장</h3><p>현재 개발 빌드는 진행과 설정을 기기에 저장합니다. 출시 버전에는 계정·Firebase 원격 저장·광고·분석·실결제를 도입할 예정입니다.</p></article>
+				<article><span>110</span><h3>로컬 진행과 계정 연결</h3><p>게임 진행과 설정은 기기에 저장합니다. Google 계정 연결은 서버 다이아 지갑, 유료 꾸미기 구매·복원과 계정 삭제에 사용합니다.</p></article>
 			</div>
 		</div>
 	</section>
 
 	<section class="content-section danta-screens" id="screens">
-		<div class="shell"><SectionHeading eyebrow="Actual screens" title="실제 앱 화면" description="앱 저장소에 보존된 Android 개발 빌드 화면입니다. 임의로 만든 목업이나 외부 이미지를 사용하지 않았습니다." /><ScreenshotGallery screenshots={dantaProduct.screenshots} /></div>
+		<div class="shell"><SectionHeading eyebrow="Actual screens" title="실제 앱 화면" description="앱 저장소에 보존된 Android 앱 화면입니다. 임의로 만든 목업이나 외부 이미지를 사용하지 않았습니다." /><ScreenshotGallery screenshots={dantaProduct.screenshots} /></div>
 	</section>
 
 	<section class="content-section simulation-section">
@@ -66,8 +66,8 @@ const productSchema = {
 
 	<section class="content-section surface-section" id="release-status">
 		<div class="shell release-grid">
-			<div><SectionHeading eyebrow="Release status" title="현재 출시 준비 중입니다" description="공식 스토어 다운로드 주소와 출시일은 아직 없습니다. 따라서 다운로드 버튼이나 Google Play 링크를 표시하지 않습니다." /><div class="notice-box"><strong>지금 확인할 수 있는 범위</strong><p>Android 우선 출시를 위한 앱 코드·한국어/영어 화면·로컬 저장·출시 자산을 준비하고 있습니다. 최종 검증과 공개 절차는 남아 있습니다.</p></div></div>
-			<div class="release-checklist"><div class="done"><span aria-hidden="true">✓</span><p><strong>현재 구현 확인</strong><small>핵심 게임 흐름 · 한국어/영어 · 로컬 저장</small></p></div><div class="pending"><span aria-hidden="true">…</span><p><strong>출시 전 진행</strong><small>최종 검증 · 공개 문구/정책 확정 · 스토어 절차</small></p></div><div class="pending"><span aria-hidden="true">…</span><p><strong>출시 버전 도입 예정</strong><small>계정 · Firebase 원격 저장 · 광고 · 분석 · 실결제</small></p></div></div>
+			<div><SectionHeading eyebrow="Release status" title="Android용으로 출시했습니다" description="공식 배포처는 Google Play입니다. 이 사이트는 별도의 APK 파일이나 비공식 설치 경로를 제공하지 않습니다." /><div class="notice-box"><strong>출시 제품 안내</strong><p>한국어·영어 화면, 기기 로컬 진행 저장, Google 계정 연결, 다이아 구매·복원, 광고와 계정 삭제 안내를 포함한 Android 게임입니다.</p></div></div>
+			<div class="release-checklist"><div class="done"><span aria-hidden="true">✓</span><p><strong>핵심 게임</strong><small>5분 단타 · 번개단타 · 한국어/영어 · 로컬 진행</small></p></div><div class="done"><span aria-hidden="true">✓</span><p><strong>계정과 구매</strong><small>Google 로그인 · 서버 지갑 · 다이아 구매와 복원</small></p></div><div class="done"><span aria-hidden="true">✓</span><p><strong>운영 안내</strong><small>개인정보처리방침 · 계정 삭제 · 고객지원</small></p></div></div>
 		</div>
 	</section>
 

@@ -10,14 +10,14 @@ export const dantaProduct = {
 	slug: 'danta',
 	name: '천하제일 단타대회',
 	nameEn: 'Danta Championship',
-	status: 'preparing' as ProductStatus,
+	status: 'released' as ProductStatus,
 	featured: true,
 	summary: '가상 시장을 읽고 짧고 선명한 단타 경기에 도전하는 모바일 게임',
 	description:
-		'7개 가상 종목의 흐름을 읽고 5분 단타 또는 1분 번개단타를 플레이합니다. 시장가·지정가 주문, 장비, 기록과 꾸미기, 결과 카드와 도전 코드 공유를 한 흐름으로 구성하고 있습니다.',
+		'7개 가상 종목의 흐름을 읽고 5분 단타 또는 1분 번개단타를 플레이합니다. 시장가·지정가 주문, 장비, 기록과 꾸미기, 결과 카드와 도전 코드 공유를 한 흐름으로 제공합니다.',
 	icon: '/assets/products/danta/app-icon.png',
 	featureGraphic: '/assets/products/danta/feature-graphic.png',
-	platformNote: 'Android 우선 출시 준비 중',
+	platformNote: 'Android 출시',
 	facts: [
 		'7개 가상 종목으로 구성된 시장',
 		'5분 단타와 1분 번개단타',

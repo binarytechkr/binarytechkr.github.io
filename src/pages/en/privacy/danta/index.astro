@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { SITE, mailtoLink, withBase } from '../../../../lib/site';
+
+const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
+---
+
+<BaseLayout
+	lang="en"
+	title="Danta Championship Privacy Policy"
+	description="How Danta Championship handles local game data, Google sign-in, Firebase wallet data, Google Play purchases, AdMob data, retention, and deletion."
+	canonicalPath="/en/privacy/danta/"
+	alternatePath="/privacy/danta/"
+	type="article"
+>
+	<header class="legal-hero">
+		<div class="shell">
+			<p class="legal-label">PRIVACY POLICY</p>
+			<h1>Danta Championship<br />Privacy Policy</h1>
+			<p>Binarytech explains below what data Danta Championship processes, why it is processed, where it is stored, and how users can delete it.</p>
+			<div class="legal-meta">
+				<span>Last updated: {SITE.legalUpdatedAt}</span>
+				<span>Effective: {SITE.legalEffectiveAtEn}</span>
+				<span>Android package: com.binarytech.dantagame</span>
+			</div>
+		</div>
+	</header>
+
+	<div class="legal-layout shell">
+		<nav class="legal-toc" aria-label="Privacy Policy contents">
+			<strong>Contents</strong>
+			<ol>
+				<li><a href="#scope">Scope and operator</a></li>
+				<li><a href="#summary">Data summary</a></li>
+				<li><a href="#account">Account and purchases</a></li>
+				<li><a href="#ads">Ads and consent</a></li>
+				<li><a href="#sharing">Sharing and providers</a></li>
+				<li><a href="#retention">Retention and deletion</a></li>
+				<li><a href="#security">Security</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ol>
+		</nav>
+
+		<article class="legal-content">
+			<div class="notice-box">
+				<strong>Free play does not require sign-in.</strong>
+				<p>Game progress and preferences are stored on the device by default. Data is sent to Google or Firebase only when the relevant account, purchase, restore, or advertising feature is used.</p>
+			</div>
+
+			<section id="scope">
+				<h2>1. Scope and operator</h2>
+				<p>This policy applies to <strong>Danta Championship</strong>, also published in Korean as 천하제일 단타대회, an Android game operated by Binarytech. All stocks, prices, and returns in the game are fictional. The game does not provide real trading, investment advice, cash rewards, withdrawal, exchange, or cash-out.</p>
+				<ul>
+					<li><strong>Operator:</strong> Binarytech (바이너리테크)</li>
+					<li><strong>App:</strong> Danta Championship (천하제일 단타대회)</li>
+					<li><strong>Android package:</strong> com.binarytech.dantagame</li>
+					<li><strong>Privacy contact:</strong> <a href={privacyMailto}>{SITE.supportEmail}</a></li>
+				</ul>
+				<p>Linking a Google account is optional. It is used for the server-side diamond wallet, paid cosmetics, purchase verification and restoration, and account deletion. Local game progress is not uploaded to the linked account.</p>
+			</section>
+
+			<section id="summary">
+				<h2>2. Data processing summary</h2>
+				<section class="table-scroll" aria-label="Data processing summary table" tabindex="0">
+					<table>
+						<thead>
+							<tr><th>Data</th><th>Purpose</th><th>Location / processor</th><th>Disclosure</th><th>Retention and deletion</th></tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Game progress, recent results, free achievements and cosmetics, preferences, local profile ID</td>
+								<td>Gameplay, state recovery, and preferences</td>
+								<td>App-private storage on the device</td>
+								<td>Not transmitted off the device</td>
+								<td>Deleted when app data is cleared or the app is removed; up to 20 recent results</td>
+							</tr>
+							<tr>
+								<td>Google email address, Firebase UID, short-lived authentication token, IP address, user-agent and device metadata, and App Check integrity token</td>
+								<td>Optional sign-in, account management, security, and abuse prevention</td>
+								<td>Google Account and Firebase Authentication</td>
+								<td>Processed by Google to provide the service; not sold</td>
+								<td>Account data is deleted on account deletion; limited security logs and backups follow Google's retention rules</td>
+							</tr>
+							<tr>
+								<td>Firebase UID, diamond balance, debt and revision, paid cosmetics, spend operation records</td>
+								<td>Server-authoritative wallet, state recovery, and prevention of duplicate use</td>
+								<td>Cloud Firestore and Cloud Functions</td>
+								<td>Processed by Google as a service provider; not sold</td>
+								<td>Deleted with the account, except the minimum records required for refunds, fraud prevention, security, or legal obligations</td>
+							</tr>
+							<tr>
+								<td>Product ID, purchase-token identifier, purchase, consumption and acknowledgement state, restore, refund, and void records</td>
+								<td>Diamond delivery, purchase verification and restoration, refund and duplicate-credit prevention</td>
+								<td>Google Play Billing, Google Play Developer API, and Firebase backend</td>
+								<td>Processed by Google for payment and verification; not sold</td>
+								<td>Raw tokens are processed temporarily; the server uses a hashed token key. Minimum integrity records are retained while their stated purpose or a legal obligation continues</td>
+							</tr>
+							<tr>
+								<td>UMP consent choice, IP address, app interactions, diagnostics, advertising ID, app set ID, and applicable device/account identifiers</td>
+								<td>Ad delivery and measurement, consent management, fraud prevention, and SDK reliability</td>
+								<td>Google Mobile Ads (AdMob) and User Messaging Platform</td>
+								<td>Shared with Google to provide advertising; not sold by Binarytech</td>
+								<td>Subject to Google advertising rules and the user's consent and Android advertising settings</td>
+							</tr>
+							<tr>
+								<td>Result card, result text, and challenge code</td>
+								<td>User-initiated sharing</td>
+								<td>Created on-device and passed to the Android Sharesheet</td>
+								<td>Sent only to the app chosen by the user</td>
+								<td>Not stored on Binarytech servers; the chosen app's policy applies after transfer</td>
+							</tr>
+							<tr>
+								<td>Support email address, message, and attachments provided by the user</td>
+								<td>Support and response</td>
+								<td>Email providers</td>
+								<td>Processed by email providers for delivery</td>
+								<td>Retained only as needed to resolve the request and meet related obligations</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<section id="account">
+				<h2>3. Google sign-in, Firebase wallet, and Google Play purchases</h2>
+				<p>When a user chooses Google sign-in, Google Sign-In and Firebase Authentication process the Google email address, Firebase UID, authentication tokens, IP address, user-agent strings, Firebase Android App ID, and Firebase user-agent device metadata. Firebase App Check may process Play Integrity attestation material and App Check tokens to verify app and request integrity and prevent abuse. Binarytech does not receive or store the user's Google password. Identifiers, full email addresses, and tokens are excluded from normal diagnostic output.</p>
+				<p>The account-linked wallet stores the Firebase UID, diamond balance, adjustment debt, state revision, paid cosmetic ownership, and spend-operation details. The backend is authoritative and uses account-generation checks, revisions, and idempotent operation IDs to prevent duplicate credit, duplicate spending, and stale-account access.</p>
+				<p>Google Play Billing provides four diamond packs. Paid cosmetics are purchased with server-authoritative diamonds rather than directly with cash. Purchase processing may use the package name, product and purchase-option IDs, purchase token, purchase state, consumption and acknowledgement state, completion time, and an obfuscated account binding.</p>
+				<p>The raw purchase token is used only as needed for Google Play verification. The server stores a SHA-256 token key instead of the raw token. Binarytech does not receive card numbers, payment passwords, or other Google Play payment credentials.</p>
+				<p>Firebase states that authentication IP logs may be retained for a few weeks. Other authentication information is retained until the developer initiates deletion of the user, after which removal from live and backup systems may take up to 180 days under Firebase's published policy.</p>
+			</section>
+
+			<section id="ads">
+				<h2>4. Advertising and UMP consent</h2>
+				<p>The app uses Google Mobile Ads (AdMob) for banner ads on the Home and Library screens and limited interstitial ads when returning to Home after a normal result. It does not use rewarded ads or app-open ads.</p>
+				<p>The Google Mobile Ads SDK may automatically collect and share IP address, app launches, taps and ad interactions, app and SDK diagnostics, Android advertising ID, app set ID, and other applicable device/account identifiers for advertising, measurement, analytics, and fraud prevention. Google states that this data is encrypted in transit with TLS.</p>
+				<p>Where required, Google's User Messaging Platform presents consent and privacy options. Ad personalization or limited ads depend on applicable law, the user's consent state, and Google settings. Users can reset or delete the Android advertising ID through Android settings.</p>
+				<p><strong>The app does not use Firebase Analytics or Firebase Crashlytics.</strong> This does not exclude interaction and diagnostic data processed by the Google Mobile Ads SDK for its own stated purposes.</p>
+			</section>
+
+			<section id="sharing">
+				<h2>5. Sharing and service providers</h2>
+				<p>When the user chooses Share, the app creates a result card, fictional result information, simulation notice, and challenge code on the device and opens the Android Sharesheet. No social-network sharing SDK is embedded. Data sent to a selected messenger, social network, storage provider, or email app is then governed by that provider's policy.</p>
+				<ul>
+					<li><strong>Google Account and Firebase:</strong> authentication, Firestore storage, Cloud Functions, App Check, and account deletion</li>
+					<li><strong>Google Play:</strong> app distribution, payment authorization, verification, restoration, refund, and void processing</li>
+					<li><strong>Google Mobile Ads and UMP:</strong> advertising, measurement, consent, fraud prevention, and diagnostics</li>
+					<li><strong>User-selected sharing and email apps:</strong> content or messages the user expressly chooses to send</li>
+				</ul>
+				<p>See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://firebase.google.com/support/privacy">Firebase Privacy and Security information</a> for provider details. Binarytech does not sell personal information.</p>
+			</section>
+
+			<section id="retention">
+				<h2>6. Retention and deletion</h2>
+				<ul>
+					<li><strong>Local data:</strong> retained until app data is cleared or the app is removed. Recent results are limited to 20.</li>
+					<li><strong>Firebase account and wallet:</strong> retained while the connected account is active and deleted when account deletion is requested.</li>
+					<li><strong>Purchase integrity:</strong> duplicate-notification records are cleared on a 30-day basis. Minimum hashed purchase, refund, void, fraud-prevention, and security records may remain until their purpose or a legal obligation ends.</li>
+					<li><strong>Advertising:</strong> governed by Google policy and the user's consent and advertising-ID controls.</li>
+					<li><strong>Support email:</strong> retained only as needed for the inquiry and related obligations.</li>
+				</ul>
+				<p>Delete an app account through <strong>Settings → Account &amp; Purchases → Delete Account</strong>, or use the public <a href={withBase('/en/account-deletion/danta/')}>account and data deletion page</a> without signing in. To delete local progress, clear Danta Championship's storage in Android settings or uninstall the app.</p>
+				<p>Signing out, temporarily disabling access, and deleting an account are different actions. Account deletion removes account-linked data. Minimum records may be segregated and retained only when required for refunds, security, fraud prevention, or legal compliance. Account deletion does not automatically refund a Google Play purchase.</p>
+			</section>
+
+			<section id="security">
+				<h2>7. Security measures</h2>
+				<ul>
+					<li>HTTPS/TLS for Google, Firebase, Google Play, and AdMob communications</li>
+					<li>Android app-private storage and exclusion of local progress from standard Android cloud backup and device transfer</li>
+					<li>Restricted Firebase client access, account-scoped permissions, and server-authoritative wallet and purchase verification</li>
+					<li>Revisions, idempotent operation IDs, and account-generation checks for stale or duplicate requests</li>
+					<li>Hashed purchase-token identifiers and redaction of UIDs, email addresses, and tokens from normal logs and UI</li>
+					<li>Operational access restricted to the people and scope needed to provide and support the service</li>
+				</ul>
+			</section>
+
+			<section id="contact">
+				<h2>8. Audience, website, updates, and contact</h2>
+				<p>The game is intended for a general audience aged 13 and over and is not designed for children under 13. Where parental consent or another requirement applies, Binarytech follows applicable law and Google Play policy.</p>
+				<p>The official website is a static GitHub Pages site. It does not use its own contact form, advertising, external analytics, or tracking cookies. Material changes to data practices will be reflected by updating this page's date and providing an appropriate notice in the app or on the official website.</p>
+				<p>For privacy questions or deletion requests, email <a href={privacyMailto}>{SITE.supportEmail}</a>. Do not send passwords, two-factor codes, recovery codes, card details, identity documents, or purchase tokens.</p>
+				<ul class="inline-links">
+					<li><a href={withBase('/en/account-deletion/danta/')}>Account and data deletion</a></li>
+					<li><a href={withBase('/support/')}>Support and FAQ (Korean)</a></li>
+					<li><a href={withBase('/privacy/danta/')} hreflang="ko">한국어 개인정보처리방침</a></li>
+				</ul>
+			</section>
+		</article>
+	</div>
+</BaseLayout>

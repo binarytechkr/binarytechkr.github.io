@@ -26,9 +26,9 @@ const year = new Date().getFullYear();
 		<div>
 			<h2>{lang === 'ko' ? '천하제일 단타대회' : 'Danta Championship'}</h2>
 			<ul>
-				<li><a href={withBase('/privacy/danta/')}>{lang === 'ko' ? '개인정보처리방침' : 'Privacy policy (Korean)'}</a></li>
+				<li><a href={withBase(lang === 'ko' ? '/privacy/danta/' : '/en/privacy/danta/')}>{lang === 'ko' ? '개인정보처리방침' : 'Privacy policy'}</a></li>
 				<li><a href={withBase('/terms/danta/')}>{lang === 'ko' ? '이용약관' : 'Terms (Korean)'}</a></li>
-				<li><a href={withBase('/account-deletion/danta/')}>{lang === 'ko' ? '계정 및 데이터 삭제' : 'Account and data deletion'}</a></li>
+				<li><a href={withBase(lang === 'ko' ? '/account-deletion/danta/' : '/en/account-deletion/danta/')}>{lang === 'ko' ? '계정 및 데이터 삭제' : 'Account and data deletion'}</a></li>
 			</ul>
 		</div>
 	</div>

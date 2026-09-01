@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { SITE, mailtoLink, withBase } from '../../../../lib/site';
+
+const deletionMailto = mailtoLink('[Danta Championship] Account deletion request')!;
+---
+
+<BaseLayout
+	lang="en"
+	title="Danta Championship Account and Data Deletion"
+	description="How to request deletion of a Danta Championship account and linked data in the app or by email without signing in, plus local-data deletion steps."
+	canonicalPath="/en/account-deletion/danta/"
+	alternatePath="/account-deletion/danta/"
+>
+	<header class="legal-hero">
+		<div class="shell">
+			<p class="legal-label">ACCOUNT &amp; DATA DELETION</p>
+			<h1>Danta Championship<br />Account and Data Deletion</h1>
+			<p>This page explains how to delete a Danta Championship account and its linked data from Binarytech. It is publicly available without signing in to the app.</p>
+			<div class="legal-meta">
+				<span>Last updated: {SITE.legalUpdatedAt}</span>
+				<span>Product status: Released</span>
+				<span>Android package: com.binarytech.dantagame</span>
+			</div>
+		</div>
+	</header>
+
+	<div class="legal-layout shell">
+		<nav class="legal-toc" aria-label="Account deletion contents">
+			<strong>Contents</strong>
+			<ol>
+				<li><a href="#request">Ways to request deletion</a></li>
+				<li><a href="#in-app">In-app path</a></li>
+				<li><a href="#web">External web path</a></li>
+				<li><a href="#difference">Sign-out versus deletion</a></li>
+				<li><a href="#deleted">Data deleted</a></li>
+				<li><a href="#retained">Data retained</a></li>
+				<li><a href="#local">Local data</a></li>
+				<li><a href="#process">Process and contact</a></li>
+			</ol>
+		</nav>
+
+		<article class="legal-content">
+			<section id="request">
+				<h2>1. Ways to request deletion</h2>
+				<p>If you linked a Google account, you can request deletion from inside the app. If you no longer have the app or cannot open it, you can request deletion by email from this page without signing in or reinstalling the app.</p>
+				<div class="deletion-actions">
+					<div>
+						<strong>If you can use the app</strong>
+						<p>Settings → Account &amp; Purchases → Delete Account</p>
+						<a class="text-link" href="#in-app">View the in-app steps <span aria-hidden="true">→</span></a>
+					</div>
+					<div>
+						<strong>If you cannot use the app</strong>
+						<p>Send a deletion request without signing in</p>
+						<a class="button" href={deletionMailto}>Email an account deletion request</a>
+					</div>
+				</div>
+				<p>If you played without linking a Google account, there may be no server account to delete. Use the <a href="#local">local-data deletion steps</a> instead.</p>
+			</section>
+
+			<section id="in-app">
+				<h2>2. In-app deletion path</h2>
+				<ol class="step-list">
+					<li><span>1</span><div><strong>Open Settings</strong><p>Open Danta Championship settings and select <strong>Account &amp; Purchases</strong>.</p></div></li>
+					<li><span>2</span><div><strong>Select Delete Account</strong><p>Review the connected Google account and select <strong>Delete Account</strong>.</p></div></li>
+					<li><span>3</span><div><strong>Re-authenticate and review</strong><p>Complete recent Google re-authentication if requested, and review what will be deleted and what local or minimum transaction-integrity data is handled separately.</p></div></li>
+					<li><span>4</span><div><strong>Confirm the request</strong><p>After final confirmation, account-linked wallet and purchase access is retired and server deletion begins. The app lets you check or safely retry the same request.</p></div></li>
+				</ol>
+				<p>This deletes the Danta Championship app account created through Firebase Authentication. It does not delete the user's Google Account.</p>
+			</section>
+
+			<section id="web">
+				<h2>3. External deletion request without sign-in</h2>
+				<p>Use the email path below without signing in to the app. The button opens an email draft with the request subject filled in.</p>
+				<p><a class="button" href={deletionMailto}>Compose account deletion request</a></p>
+				<p><strong>Recipient:</strong> <a href={deletionMailto}>{SITE.supportEmail}</a><br /><strong>Suggested subject:</strong> [Danta Championship] Account deletion request</p>
+				<h3>Include only:</h3>
+				<ul>
+					<li>App name: Danta Championship</li>
+					<li>The Google email address used to link the app account</li>
+					<li>A clear statement that you request deletion of the app account and linked data</li>
+					<li>A different reply email address, if needed</li>
+				</ul>
+				<div class="notice-box">
+					<strong>Do not send sensitive credentials or payment data.</strong>
+					<p>Never email a Google password, two-factor code, recovery code, identity document, card number, payment password, or purchase token. If additional verification is necessary, Binarytech will request only the minimum information required.</p>
+				</div>
+			</section>
+
+			<section id="difference">
+				<h2>4. Sign-out, restricted access, and deletion</h2>
+				<section class="table-scroll" aria-label="Sign-out and deletion comparison" tabindex="0">
+					<table>
+						<thead><tr><th>Action</th><th>Effect</th><th>Server data</th></tr></thead>
+						<tbody>
+							<tr><td>Sign out</td><td>Disconnects the account from the current device.</td><td>The account, wallet, and purchase data remain and can be accessed after signing in again.</td></tr>
+							<tr><td>Temporary restriction</td><td>May limit access for security or operational reasons.</td><td>This is not deletion and does not automatically erase data.</td></tr>
+							<tr><td>Delete account</td><td>Permanently deletes the Danta Championship app account.</td><td>Linked data is deleted, except minimum segregated records required for refunds, security, fraud prevention, or legal compliance.</td></tr>
+						</tbody>
+					</table>
+				</section>
+				<p>Signing out, freezing, or temporarily disabling an account is not a substitute for account deletion.</p>
+			</section>
+
+			<section id="deleted">
+				<h2>5. Data deleted with the account</h2>
+				<ul>
+					<li>Firebase Authentication app account, Firebase UID, and Google email linkage</li>
+					<li>Server diamond balance, adjustment debt, and wallet revision</li>
+					<li>Server-side paid cosmetic ownership and diamond-spend state</li>
+					<li>Active account binding used for purchase restoration</li>
+					<li>Account-specific caches, device binding, and operations or diagnostics no longer needed</li>
+				</ul>
+				<p>After deletion, the deleted wallet, paid cosmetics, and purchase-restoration state cannot be accessed. Linking the same Google account later does not guarantee restoration of deleted app-account data.</p>
+			</section>
+
+			<section id="retained">
+				<h2>6. Minimum data that may be retained</h2>
+				<p>Binarytech may segregate and retain only the minimum data needed for Google Play refund and void handling, duplicate-credit prevention, fraud prevention, security, or applicable legal obligations:</p>
+				<ul>
+					<li>A hashed Google Play purchase-token key and purchase state, not the raw token</li>
+					<li>A non-reversible HMAC binding marker used to prevent abusive reconnection</li>
+					<li>Operation receipts needed for refunds, voids, cancellations, duplicate-credit prevention, or security incidents</li>
+					<li>Transaction-integrity records required by applicable law or Google Play policy</li>
+				</ul>
+				<p>These records are not used to restore the deleted account or for advertising. They are removed or irreversibly de-identified when their stated purpose or legal obligation ends. Google Play payment records and the user's Google Account are subject to Google's separate retention rules.</p>
+				<p>Deleting the app account does not automatically cancel or refund a Google Play purchase. Use Google Play's purchase and refund process or contact <a href={withBase('/support/')}>Binarytech support</a> separately.</p>
+			</section>
+
+			<section id="local">
+				<h2>7. Delete local game data separately</h2>
+				<p>Free-game progress, recent results, achievements, free cosmetics, and preferences remain on the device and are not uploaded to the connected account. Server account deletion therefore does not clear local game data.</p>
+				<ol class="step-list">
+					<li><span>1</span><div><strong>Clear app storage</strong><p>In Android, open Settings → Apps → Danta Championship → Storage, then select Clear data or the equivalent option.</p></div></li>
+					<li><span>2</span><div><strong>Or uninstall the app</strong><p>Removing the app also removes its Android-managed app-private local data.</p></div></li>
+				</ol>
+				<p>This removes the local profile, tutorial state, completion count, recent results, free achievements and cosmetics, display, chart and language preferences, and local recovery state. The data may not be recoverable.</p>
+			</section>
+
+			<section id="process">
+				<h2>8. Processing and contact</h2>
+				<ol>
+					<li>Binarytech identifies the Danta Championship account and requests only the minimum verification information needed.</li>
+					<li>After verification, account access and purchase authority are retired and deletion of the Firebase account and linked data begins.</li>
+					<li>If a retention exception applies, it is separated by purpose. Binarytech replies with the request status and expected completion time.</li>
+					<li>Binarytech confirms completion or any further action required by email.</li>
+				</ol>
+				<p>Deletion requests are handled without undue delay, including the time needed for identity verification. If Firebase backup removal or a legal retention requirement prevents immediate completion, Binarytech will explain the reason and expected timing in the reply.</p>
+				<p>Contact: <a href={deletionMailto}>{SITE.supportEmail}</a></p>
+				<ul class="inline-links">
+					<li><a href={withBase('/en/privacy/danta/')}>Privacy Policy</a></li>
+					<li><a href={withBase('/support/')}>Support and FAQ (Korean)</a></li>
+					<li><a href={withBase('/account-deletion/danta/')} hreflang="ko">한국어 계정 삭제 안내</a></li>
+				</ul>
+			</section>
+		</article>
+	</div>
+</BaseLayout>
+
+<style>
+	.deletion-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem; }
+	.deletion-actions > div { display: grid; align-content: start; gap: .65rem; padding: 1.25rem; border: 1px solid #ced9d4; border-radius: 1rem; background: white; }
+	.deletion-actions strong { color: #13242c; }
+	.deletion-actions p { margin: 0; }
+	.deletion-actions .button { justify-self: start; margin-top: .25rem; }
+	.step-list { display: grid; gap: .8rem; margin: 1.5rem 0; padding: 0; list-style: none; }
+	.step-list li { display: grid; grid-template-columns: 2.6rem 1fr; gap: .9rem; padding: 1rem; border: 1px solid #ced9d4; border-radius: .8rem; background: white; }
+	.step-list li > span { display: grid; width: 2.4rem; height: 2.4rem; place-items: center; border-radius: .65rem; background: #d9eee9; color: #0f6e65; font-weight: 800; }
+	.step-list strong { color: #13242c; }
+	.step-list p { margin: .2rem 0 0; }
+	@media (max-width: 680px) { .deletion-actions { grid-template-columns: 1fr; } }
+</style>

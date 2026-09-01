@@ -1,32 +1,231 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { SITE, withBase } from '../../../lib/site';
+import { SITE, mailtoLink, withBase } from '../../../lib/site';
+
+const privacyMailto = mailtoLink('[천하제일 단타대회] 개인정보 문의')!;
 ---
 
-<BaseLayout title="천하제일 단타대회 개인정보처리방침" description="천하제일 단타대회의 현재 로컬 저장 구성과 계정·Firebase 원격 저장·광고·분석·실결제 출시 계획을 구분해 설명합니다." canonicalPath="/privacy/danta/" type="article">
+<BaseLayout
+	title="천하제일 단타대회 개인정보처리방침"
+	description="천하제일 단타대회가 처리하는 로컬 게임 데이터, Google 로그인, Firebase 지갑, Google Play 결제, AdMob 광고와 삭제 방법을 설명합니다."
+	canonicalPath="/privacy/danta/"
+	alternatePath="/en/privacy/danta/"
+	type="article"
+>
 	<header class="legal-hero">
-		<div class="shell"><p class="legal-label">출시 전 공개 문서 초안</p><h1>천하제일 단타대회<br />개인정보처리방침</h1><p>현재 개발 빌드에서 확인된 처리와 출시 버전에 도입할 예정인 처리를 나누어 공개합니다. 실제 앱 구현을 다시 확인한 최종 방침은 앱 공개 전에 확정합니다.</p><div class="legal-meta"><span>초안 기준일: {SITE.legalDraftDate}</span><span>시행 예정일: 앱 최초 공개일</span><span>대상: Android 우선 준비 버전</span></div></div>
+		<div class="shell">
+			<p class="legal-label">PRIVACY POLICY</p>
+			<h1>천하제일 단타대회<br />개인정보처리방침</h1>
+			<p>바이너리테크(Binarytech)는 천하제일 단타대회 이용 과정에서 처리되는 데이터와 이용자의 선택권을 다음과 같이 안내합니다.</p>
+			<div class="legal-meta">
+				<span>최종 갱신일: {SITE.legalUpdatedAt}</span>
+				<span>시행일: {SITE.legalEffectiveAt}</span>
+				<span>Android 패키지: com.binarytech.dantagame</span>
+			</div>
+		</div>
 	</header>
+
 	<div class="legal-layout shell">
-		<nav class="legal-toc" aria-label="개인정보처리방침 목차"><strong>목차</strong><ol><li><a href="#scope">적용 범위</a></li><li><a href="#summary">현재와 출시 예정 요약</a></li><li><a href="#local-data">기기 로컬 데이터</a></li><li><a href="#sharing">공유 기능</a></li><li><a href="#planned-processing">출시 예정 처리</a></li><li><a href="#retention">보관과 삭제</a></li><li><a href="#website">웹사이트와 문의</a></li><li><a href="#changes">변경과 문의</a></li></ol></nav>
+		<nav class="legal-toc" aria-label="개인정보처리방침 목차">
+			<strong>목차</strong>
+			<ol>
+				<li><a href="#scope">적용 범위와 운영자</a></li>
+				<li><a href="#summary">데이터 처리 요약</a></li>
+				<li><a href="#local">기기 로컬 데이터</a></li>
+				<li><a href="#account">Google 로그인과 Firebase</a></li>
+				<li><a href="#purchase">지갑과 Google Play 결제</a></li>
+				<li><a href="#ads">광고와 동의</a></li>
+				<li><a href="#sharing">공유와 제3자 처리업체</a></li>
+				<li><a href="#retention">보관과 삭제</a></li>
+				<li><a href="#security">보호조치</a></li>
+				<li><a href="#contact">변경과 문의</a></li>
+			</ol>
+		</nav>
+
 		<article class="legal-content">
-			<div class="notice-box"><strong>중요: 아직 시행 중인 최종 방침이 아닙니다.</strong><p>계정, Firebase 원격 저장, 광고, 분석, 실결제는 출시 버전에 도입할 예정입니다. 다만 로그인 방식, 사용하는 Firebase·광고·분석 제품, 정확한 수집 항목, 보관 기간과 삭제 경로는 아직 앱 소스에서 확정되지 않았으므로 임의로 적지 않습니다.</p></div>
+			<div class="notice-box">
+				<strong>무료 플레이에는 로그인이 필요하지 않습니다.</strong>
+				<p>게임 진행과 환경설정은 기본적으로 기기에 저장됩니다. 계정 연결, 구매·복원 또는 광고 기능을 사용하는 경우에만 아래에 명시한 데이터가 Google·Firebase 서비스로 전송됩니다.</p>
+			</div>
 
-			<section id="scope"><h2>1. 적용 범위</h2><p>이 방침은 바이너리테크가 준비 중인 모바일 게임 <strong>천하제일 단타대회</strong>의 Android 우선 준비 버전을 대상으로 합니다. 아직 공개 출시된 앱은 없으며, 현재 개발 빌드는 진행과 설정을 기기에 저장하도록 구성되어 있습니다.</p><p>이 방침에서 “처리”는 앱이 데이터를 생성·읽기·저장·전송·삭제하는 경우를 포함합니다. 현재 확인된 로컬 처리와 사용자가 확정한 출시 방향을 구분하며, 출시 방향만 정해지고 구현 세부가 확인되지 않은 항목은 예정 상태로 표시합니다.</p></section>
+			<section id="scope">
+				<h2>1. 적용 범위와 운영자</h2>
+				<p>이 방침은 바이너리테크가 운영하는 Android 게임 <strong>천하제일 단타대회(Danta Championship)</strong>에 적용됩니다. 게임의 종목·가격·수익은 모두 가상이며 실제 주식 거래, 투자 자문, 현금 보상, 출금 또는 환전을 제공하지 않습니다.</p>
+				<ul>
+					<li><strong>운영자:</strong> 바이너리테크(Binarytech)</li>
+					<li><strong>앱 이름:</strong> 천하제일 단타대회(Danta Championship)</li>
+					<li><strong>Android 패키지:</strong> com.binarytech.dantagame</li>
+					<li><strong>개인정보 문의:</strong> <a href={privacyMailto}>{SITE.supportEmail}</a></li>
+				</ul>
+				<p>Google 계정 연결은 선택 사항입니다. 계정을 연결하지 않아도 무료 게임을 플레이할 수 있으며, 계정 기능은 서버 다이아 지갑, 유료 꾸미기, 구매·복원과 계정 삭제에 사용됩니다.</p>
+			</section>
 
-			<section id="summary"><h2>2. 현재와 출시 예정 처리 요약</h2><table><thead><tr><th>구분</th><th>현재 개발 빌드</th><th>출시 예정 구성</th></tr></thead><tbody><tr><td>기기 로컬 저장</td><td>게임 진행·설정 저장</td><td>계속 사용 예정</td></tr><tr><td>계정·로그인</td><td>비활성</td><td>도입 예정</td></tr><tr><td>Firebase 원격 저장</td><td>비활성</td><td>도입 예정</td></tr><tr><td>광고</td><td>비활성</td><td>도입 예정</td></tr><tr><td>이용 분석</td><td>비활성</td><td>도입 예정</td></tr><tr><td>스토어 실결제</td><td>비활성</td><td>도입 예정</td></tr><tr><td>공식 웹사이트 폼·광고·분석·쿠키 추적</td><td>사용하지 않음</td><td>사용 계획 없음</td></tr></tbody></table><p>“도입 예정”은 출시 방향을 뜻하며 지금 실행 중인 기능이라는 뜻이 아닙니다. 각 항목의 최종 처리 내용은 실제 출시 후보 빌드와 서비스 설정을 대조해 갱신합니다.</p></section>
+			<section id="summary">
+				<h2>2. 데이터 처리 요약</h2>
+				<section class="table-scroll" aria-label="데이터 처리 요약표" tabindex="0">
+					<table>
+						<thead>
+							<tr>
+								<th>데이터 유형</th>
+								<th>처리 목적</th>
+								<th>저장 위치·처리업체</th>
+								<th>공유 여부</th>
+								<th>보관·삭제 기준</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>게임 진행, 최근 기록, 무료 업적·꾸미기, 설정, 로컬 식별자</td>
+								<td>게임 제공, 진행 복원, 환경설정 유지</td>
+								<td>이용자 기기의 앱 전용 저장공간</td>
+								<td>기기 밖으로 전송하지 않음</td>
+								<td>앱 데이터 삭제 또는 앱 제거 시 삭제. 최근 기록은 최대 20개</td>
+							</tr>
+							<tr>
+								<td>Google 계정 이메일, Firebase UID, 인증 토큰, IP 주소, 사용자 에이전트·기기 메타데이터와 App Check 무결성 토큰</td>
+								<td>선택적 로그인, 계정 식별, 인증 보안과 부정사용 방지</td>
+								<td>Google 계정·Firebase Authentication</td>
+								<td>서비스 제공을 위해 Google이 처리하며 판매하지 않음</td>
+								<td>계정 삭제 요청 시 인증 계정 삭제. 일부 보안 로그·백업은 Google 정책에 따라 제한 보관</td>
+							</tr>
+							<tr>
+								<td>Firebase UID, 다이아 잔액·부채·revision, 보유 유료 꾸미기와 사용 기록</td>
+								<td>서버 권위 지갑, 중복 사용 방지, 계정 간 구매 상태 유지</td>
+								<td>Cloud Firestore·Cloud Functions</td>
+								<td>Firebase 서비스 제공을 위해 Google이 처리하며 판매하지 않음</td>
+								<td>계정 삭제 시 계정 데이터 삭제. 환불·부정사용 방지에 필요한 최소 기록은 목적 달성 또는 법적 의무 종료까지 분리 보관</td>
+							</tr>
+							<tr>
+								<td>상품 ID, 구매 토큰 식별정보, 구매·소비·승인 상태, 구매 복원·환불·void 기록</td>
+								<td>다이아 지급, 구매 검증·복원, 환불과 중복 지급 방지</td>
+								<td>Google Play Billing, Google Play Developer API, Firebase 서버</td>
+								<td>결제·검증을 위해 Google이 처리하며 판매하지 않음</td>
+								<td>원본 토큰은 검증 중 일시 처리하고 서버에는 해시 식별키를 사용. 거래 무결성에 필요한 최소 기록은 관련 목적·법적 의무가 지속되는 동안 보관</td>
+							</tr>
+							<tr>
+								<td>UMP 동의 선택, IP 주소, 앱 상호작용, 진단 정보, 광고 ID·앱 세트 ID 등 기기·계정 식별자</td>
+								<td>광고 제공·측정, 동의 관리, 부정사용 방지와 SDK 안정성</td>
+								<td>Google Mobile Ads(AdMob)·User Messaging Platform</td>
+								<td>광고 서비스 제공을 위해 Google과 공유. 개인정보 판매는 하지 않음</td>
+								<td>Google 광고 정책과 이용자 동의·기기 광고 ID 설정에 따름</td>
+							</tr>
+							<tr>
+								<td>결과 카드, 결과 문구와 도전 코드</td>
+								<td>이용자가 선택한 결과 공유</td>
+								<td>기기에서 생성 후 Android 공유 시트로 전달</td>
+								<td>이용자가 직접 선택한 외부 앱에만 전달</td>
+								<td>바이너리테크 서버에 저장하지 않으며 전달 후에는 선택한 앱의 정책이 적용됨</td>
+							</tr>
+							<tr>
+								<td>문의 이메일 주소, 문의 내용과 이용자가 첨부한 파일</td>
+								<td>고객 문의 확인과 답변</td>
+								<td>발신·수신 이메일 제공업체</td>
+								<td>메일 전달을 위해 이메일 제공업체가 처리</td>
+								<td>문의 처리와 관련 의무에 필요한 기간 동안 보관 후 삭제</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<p>위 표의 “공유”에는 서비스 제공업체가 기능 수행을 위해 데이터를 처리하는 경우를 포함해 알기 쉽게 표시했습니다. Google Play Data safety의 “수집·공유” 분류는 Google의 별도 정의에 따라 앱과 SDK의 최종 배포 구성을 기준으로 신고합니다.</p>
+			</section>
 
-			<section id="local-data"><h2>3. 기기에 저장하는 데이터</h2><p>앱은 게임 기능 제공과 다음 실행 시 상태 복원을 위해 아래 데이터를 기기 내부 애플리케이션 저장공간에 저장합니다.</p><ul><li>기기 내부에서만 사용하는 임의의 로컬 프로필 식별자</li><li>튜토리얼·조작 연습 완료 상태</li><li>5분 단타 완주 횟수와 최신 완주 기록(최대 20개)</li><li>무료 꾸미기 해금·수령·적용 상태와 업적 진행</li><li>화면 테마, 차트 시간 단위·순서, 기본 탭, 언어 선택 등 사용자 설정</li><li>중단 또는 오류 뒤 안전하게 복구하기 위한 로컬 저장 세대와 처리 상태</li></ul><p>가상 거래 세션의 종목·가격·주문·결과는 게임 진행 중 메모리에서 처리됩니다. 정상 완주 시에는 진행과 최근 기록에 필요한 요약만 로컬 프로필에 반영합니다.</p><h3>저장 목적</h3><ul><li>게임 진행과 무료 보상·업적 반영</li><li>최근 기록과 결과 공유 기능 제공</li><li>화면·차트·언어 설정 유지</li><li>저장 중 오류나 중단에 대한 로컬 복구</li></ul></section>
+			<section id="local">
+				<h2>3. 기기 로컬 데이터</h2>
+				<p>다음 정보는 게임을 제공하고 다음 실행에서 상태를 복원하기 위해 Android 앱 전용 저장공간에 저장됩니다.</p>
+				<ul>
+					<li>기기 안에서만 사용하는 임의의 로컬 프로필 식별자</li>
+					<li>튜토리얼·조작 연습 완료 상태</li>
+					<li>5분 단타 완주 횟수와 최근 완주 기록 최대 20개</li>
+					<li>무료 업적·꾸미기 해금, 수령과 적용 상태</li>
+					<li>화면 테마, 차트 단위·순서, 기본 탭과 언어 설정</li>
+					<li>중단 또는 오류 뒤 안전한 복구를 위한 저장 세대와 처리 상태</li>
+				</ul>
+				<p>이 로컬 진행은 Google 계정에 업로드하거나 계정 간에 합치지 않습니다. 앱 데이터는 Android 표준 클라우드 백업과 기기 간 전송 대상에서 제외되도록 구성됩니다. Android 설정에서 앱 저장공간을 삭제하거나 앱을 제거하면 로컬 데이터가 삭제되며, 계정 삭제만으로는 현재 기기에 남은 로컬 진행이 지워지지 않습니다.</p>
+			</section>
 
-			<section id="sharing"><h2>4. 결과 공유와 도전 코드</h2><p>사용자가 직접 공유를 선택하면 앱은 기기 안에서 결과 카드 이미지와 설명 문구를 만들고 운영체제의 공유 화면을 엽니다. 공유 내용에는 경기 모드, 가상 손익·최종 자산, 완주 기록, 장착 꾸미기, 모의게임 고지와 도전 코드가 포함될 수 있습니다.</p><p>도전 코드는 같은 가상 장세를 다시 만들기 위한 버전·검증값·시장 패턴 정보로 구성되며 로컬 프로필 ID나 앱 계정 ID를 포함하지 않도록 설계되어 있습니다. 사용자가 선택한 메신저·SNS 등 외부 앱으로 전송한 뒤의 처리는 해당 서비스의 정책을 따릅니다. 바이너리테크는 특정 공유 서비스 SDK를 앱에 직접 연결하지 않은 구성입니다.</p></section>
+			<section id="account">
+				<h2>4. Google 로그인과 Firebase 계정</h2>
+				<p>사용자가 Google 계정 연결을 선택하면 Google Sign-In과 Firebase Authentication이 인증을 처리합니다. 이 과정에서 Google 계정의 이메일 주소, Firebase UID, 단기 인증 토큰, IP 주소, 사용자 에이전트, 운영체제·기기 모델 등 Firebase 사용자 에이전트 정보와 Firebase Android 앱 ID가 처리될 수 있습니다. Firebase App Check는 앱과 요청의 무결성을 확인하고 부정사용을 막기 위해 Play Integrity 증명 자료와 App Check 토큰을 처리할 수 있습니다.</p>
+				<p>바이너리테크는 Google 계정 비밀번호를 받거나 저장하지 않습니다. 앱 화면에는 필요한 경우 이메일을 일부 가린 형태로 표시하고, UID·인증 토큰·이메일 전체가 진단 로그에 노출되지 않도록 제한합니다.</p>
+				<p>Firebase Authentication은 인증과 계정 관리, 로그인 보안, 부정사용 방지를 위해 데이터를 처리합니다. Google의 공개 기준에 따르면 인증 IP 로그는 수 주 동안 보관될 수 있고, 그 밖의 인증 정보는 개발자가 계정을 삭제할 때까지 보관되며 삭제 시작 후 라이브·백업 시스템에서 제거되는 데 최대 180일이 걸릴 수 있습니다.</p>
+			</section>
 
-			<section id="planned-processing"><h2>5. 출시 버전에 도입 예정인 처리</h2><p>출시 방향에는 아래 기능이 포함됩니다. 현재 소스에서 실제 활성 구성과 정확한 처리 항목을 확인할 수 없어, 이 목록은 최종 수집 항목이나 제공업체 목록을 대신하지 않습니다.</p><ul><li><strong>계정:</strong> 로그인과 사용자 식별, 계정에 연결된 진행 복구를 위한 기능</li><li><strong>Firebase 원격 저장:</strong> 게임 진행, 설정, 가상 재화와 구매 복원에 필요한 상태의 저장·동기화</li><li><strong>광고:</strong> 앱 안의 광고 제공과 노출·성과 확인에 필요한 처리</li><li><strong>분석:</strong> 앱 이용 현황, 오류와 품질 개선에 필요한 이벤트·기기 환경 처리</li><li><strong>실결제:</strong> 앱 스토어를 통한 상품 구매, 구매 확인과 복원에 필요한 처리</li></ul><p>결제는 앱 스토어가 제공하는 결제 절차를 사용할 예정이며, 바이너리테크 공식 웹사이트는 카드번호나 결제 비밀번호를 받지 않습니다.</p><h3>앱 공개 전에 확정할 세부 항목</h3><ul><li>로그인 제공자와 계정 식별 정보</li><li>사용하는 Firebase 제품, 저장 지역, 원격 저장 필드와 보관 기간</li><li>광고·분석 SDK 제공자, 광고 개인화 여부, 광고 식별자와 동의 방식</li><li>결제 상품, 구매 검증·복원 정보, 환불과 법정 보관 항목</li><li>계정·원격 데이터 삭제 경로, 처리 기간과 예외적으로 보관하는 최소 항목</li></ul></section>
+			<section id="purchase">
+				<h2>5. 서버 지갑과 Google Play 결제</h2>
+				<h3>서버 다이아 지갑</h3>
+				<p>계정 연결 시 Firebase UID에 다이아 잔액, 정산에 필요한 부채, 상태 revision, 보유 유료 꾸미기, 다이아 사용 작업 ID·상품 ID·가격과 지갑 revision이 연결됩니다. 지갑과 유료 꾸미기는 서버를 최종 권위로 사용해 중복 지급·중복 사용과 오래된 상태의 덮어쓰기를 방지합니다.</p>
+				<h3>다이아 충전과 구매 복원</h3>
+				<p>현금 상품은 Google Play Billing의 다이아 충전팩 4종입니다. 유료 꾸미기는 현금으로 직접 결제하지 않고 서버 권위 다이아로 구매합니다. 구매·복원·환불 처리에는 패키지명, 상품 ID, 구매 옵션 ID, 구매 토큰, 구매 상태, 소비·승인 상태, 완료 시각과 계정을 가린 결제 바인딩 식별자가 사용될 수 있습니다.</p>
+				<p>구매 토큰 원문은 Google Play 서버 검증에 필요한 동안만 처리하고, 서버 기록에는 SHA-256 방식으로 만든 토큰 식별키를 사용합니다. 구매 알림의 중복 처리를 막기 위한 수신 기록은 30일 기준으로 정리되며, 환불·void·중복 지급·부정사용 방지를 위한 최소 무결성 기록은 해당 목적 또는 법적 의무가 끝날 때까지 분리 보관할 수 있습니다.</p>
+				<div class="notice-box">
+					<strong>카드번호와 결제 비밀번호는 바이너리테크가 직접 수집하지 않습니다.</strong>
+					<p>결제수단 정보와 결제 승인은 Google Play가 처리합니다. 계정 삭제는 Google Play의 구매 기록 삭제나 환불을 자동으로 의미하지 않으며, 환불은 관련 법령과 Google Play 절차를 따릅니다.</p>
+				</div>
+			</section>
 
-			<section id="retention"><h2>6. 보관 기간과 삭제 방법</h2><p>현재 로컬 데이터는 사용자가 앱의 저장공간을 지우거나 앱을 제거할 때까지 기기에 보관됩니다. 최신 기록은 제품 계약에 따라 최대 20개로 제한되며 새 기록이 저장되면 오래된 기록이 교체될 수 있습니다.</p><p>현재 Android 준비 구성은 앱 소유 데이터가 Android의 표준 클라우드 백업과 기기 간 전송 대상에서 제외되도록 설정되어 있습니다. 제조사별 별도 이전 도구의 동작은 다를 수 있으므로 최종 출시 기기에서 다시 확인합니다.</p><h3>현재 로컬 데이터를 직접 삭제하는 방법</h3><ol><li>Android 설정에서 <strong>앱 → 천하제일 단타대회 → 저장공간</strong>으로 이동합니다.</li><li><strong>저장공간 삭제</strong> 또는 유사한 이름의 항목을 선택합니다. 메뉴 이름은 기기마다 다를 수 있습니다.</li><li>또는 앱을 제거하면 앱의 로컬 데이터가 함께 삭제됩니다.</li></ol><p>현재 개발 빌드에는 앱 계정과 서버 저장 데이터가 없어 별도의 서버 계정 삭제 요청을 제공하지 않습니다. 출시 버전에 계정과 원격 저장을 활성화할 때 보관 기간과 앱·웹 삭제 경로를 확정해 <a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제 안내</a>에 함께 공개합니다.</p></section>
+			<section id="ads">
+				<h2>6. 광고와 UMP 동의 처리</h2>
+				<p>앱은 Google Mobile Ads(AdMob)를 통해 홈·보관함 화면의 배너 광고와 정상 경기 결과에서 홈으로 돌아갈 때 제한된 전면 광고를 표시합니다. 보상형 광고와 앱 시작 광고는 사용하지 않습니다.</p>
+				<p>Google Mobile Ads SDK는 광고 제공·측정, 분석과 부정사용 방지를 위해 IP 주소, 앱 실행·탭·광고 상호작용 같은 앱 활동, 앱·SDK 성능 진단, Android 광고 ID, 앱 세트 ID와 적용 가능한 기기·계정 식별자를 자동으로 수집·공유할 수 있습니다. 전송 데이터는 TLS로 암호화됩니다.</p>
+				<p>법령상 필요한 지역에서는 Google User Messaging Platform(UMP)으로 광고 관련 동의 선택을 받고 변경 가능한 개인정보 옵션을 제공합니다. 동의 상태, 지역·연령 관련 설정과 Google 광고 설정에 따라 개인 맞춤 또는 제한된 광고가 제공될 수 있습니다. 광고 ID는 Android 설정에서 재설정하거나 삭제할 수 있습니다.</p>
+				<p><strong>Firebase Analytics와 Firebase Crashlytics는 사용하지 않습니다.</strong> 다만 Google Mobile Ads SDK가 자체 서비스 제공을 위해 처리하는 광고 상호작용·진단 정보는 위와 같이 공개합니다.</p>
+			</section>
 
-			<section id="website"><h2>7. 공식 웹사이트와 문의</h2><p>이 공식 웹사이트는 GitHub Pages에 게시하는 정적 사이트로 설계되었습니다. 사이트 자체에 계정, 비밀번호 입력, 문의 폼, 결제, 광고, 외부 분석 도구 또는 쿠키 추적을 두지 않습니다.</p><p>고객지원 페이지의 추가 문의 기능을 선택하면 기기의 메일 앱이 열립니다. 실제로 문의를 보내는 경우 발신 주소, 메시지 내용, 첨부파일과 일반적인 이메일 전송 정보가 발신·수신 이메일 제공업체에 의해 처리될 수 있습니다. 민감한 인증 정보나 결제정보는 보내지 마세요.</p></section>
+			<section id="sharing">
+				<h2>7. 결과 공유와 제3자 처리업체</h2>
+				<h3>운영체제 공유 시트</h3>
+				<p>사용자가 공유를 선택하면 앱은 기기에서 결과 카드 이미지, 경기 모드, 가상 손익·최종 자산, 모의게임 고지와 도전 코드를 만들고 Android 공유 시트를 엽니다. 특정 SNS 공유 SDK는 사용하지 않습니다. 사용자가 선택한 메신저·SNS·저장 앱으로 전달된 뒤에는 해당 서비스의 정책이 적용됩니다.</p>
+				<h3>서비스 제공업체</h3>
+				<ul>
+					<li><strong>Google LLC / Google 계정·Firebase:</strong> 로그인, 인증, Firestore 저장, Cloud Functions, App Check와 계정 삭제 처리</li>
+					<li><strong>Google Play:</strong> 앱 배포, 결제 승인, 구매 검증·복원, 환불·void 정보 처리</li>
+					<li><strong>Google Mobile Ads / UMP:</strong> 광고 제공·측정, 동의 관리, 부정사용 방지와 SDK 진단</li>
+					<li><strong>이용자가 선택한 공유·메일 앱:</strong> 이용자가 명시적으로 전송을 선택한 콘텐츠 또는 문의 메일 처리</li>
+				</ul>
+				<p>각 Google 서비스의 처리 기준은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>, <a href="https://firebase.google.com/support/privacy">Firebase 개인정보 및 보안 안내</a>에서도 확인할 수 있습니다. 바이너리테크는 개인정보를 판매하지 않습니다.</p>
+			</section>
 
-			<section id="changes"><h2>8. 방침 변경과 문의</h2><p>출시 후보 빌드에서 계정·Firebase·광고·분석·결제 구성을 검증한 뒤 실제 처리 항목과 보관·삭제 내용을 반영해 시행일을 확정합니다. 이후 데이터 처리 기능이나 출시 플랫폼이 달라지면 기준일과 변경 내용을 갱신하고, 중요한 변경은 앱 또는 공식 웹사이트의 적절한 위치에서 안내합니다.</p><p>개인정보 관련 문의는 <a href={withBase('/support/#contact')}>고객지원 페이지의 추가 문의 안내</a>를 이용할 수 있습니다.</p></section>
+			<section id="retention">
+				<h2>8. 보관 기간과 삭제 방법</h2>
+				<ul>
+					<li><strong>기기 로컬 데이터:</strong> 앱 저장공간을 삭제하거나 앱을 제거할 때까지 보관합니다. 최근 완주 기록은 최대 20개입니다.</li>
+					<li><strong>Firebase 계정·지갑:</strong> 계정 기능 제공 중 보관하며 계정 삭제 요청 시 인증 계정과 계정 연계 지갑·유료 꾸미기 데이터를 삭제합니다.</li>
+					<li><strong>구매 무결성 기록:</strong> 환불·void 처리, 중복 지급 방지, 부정사용 방지와 관련 법적 의무에 필요한 최소 항목만 목적 또는 의무가 끝날 때까지 보관합니다. 구매 알림 중복 방지 수신 기록은 30일 기준으로 정리합니다.</li>
+					<li><strong>광고 데이터:</strong> Google의 광고·동의 정책과 이용자의 광고 ID·동의 설정을 따릅니다.</li>
+					<li><strong>문의 메일:</strong> 문의 처리와 관련 의무에 필요한 기간 동안 보관한 뒤 삭제합니다.</li>
+				</ul>
+				<h3>이용자가 직접 삭제하는 방법</h3>
+				<ol>
+					<li>앱 계정과 서버 데이터: 앱의 <strong>설정 → 계정 및 구매 → 계정 삭제</strong>를 이용하거나, 로그인 없이 열리는 <a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제 안내</a>에서 이메일로 요청합니다.</li>
+					<li>기기 로컬 데이터: Android의 <strong>설정 → 앱 → 천하제일 단타대회 → 저장공간 → 데이터 삭제</strong>를 선택하거나 앱을 제거합니다.</li>
+					<li>광고 선택: 앱의 개인정보 옵션과 Android 광고 개인정보 설정에서 동의 또는 광고 ID 설정을 변경합니다.</li>
+				</ol>
+				<p>계정 삭제와 로그아웃·일시 비활성화는 다릅니다. 계정 삭제 시 계정과 연결된 데이터를 삭제하며, 보안·부정사용 방지·환불 처리 또는 법적 의무 때문에 일부 최소 기록을 보관해야 하는 경우에는 해당 목적에만 제한해 분리 보관합니다.</p>
+			</section>
+
+			<section id="security">
+				<h2>9. 데이터 보호조치</h2>
+				<ul>
+					<li>Google·Firebase·Google Play·AdMob과 통신할 때 HTTPS/TLS로 전송 데이터를 보호합니다.</li>
+					<li>로컬 진행은 Android 앱 전용 저장공간에 보관하고 표준 클라우드 백업·기기 전송 대상에서 제외합니다.</li>
+					<li>Firebase 데이터에 대한 직접 클라이언트 접근을 제한하고, 계정별 권한과 서버 권위 검증을 사용합니다.</li>
+					<li>지갑 revision, 멱등 작업 ID, 계정 세대 확인과 서버 구매 검증으로 중복 지급·오래된 요청·계정 전환 오류를 방지합니다.</li>
+					<li>구매 토큰 원문 대신 해시 식별키를 저장하고 UID·이메일·토큰이 앱 로그나 일반 UI에 노출되지 않도록 제한합니다.</li>
+					<li>운영 접근 권한은 서비스 제공과 지원에 필요한 인원과 범위로 제한합니다.</li>
+				</ul>
+			</section>
+
+			<section id="contact">
+				<h2>10. 대상 이용자, 방침 변경과 문의</h2>
+				<p>이 게임의 대상 이용자는 13세 이상 일반 이용자이며 13세 미만 아동을 대상으로 설계하지 않았습니다. 관련 지역에서 보호자 동의 등 추가 요건이 적용되는 경우 해당 법령과 Google Play 정책을 따릅니다.</p>
+				<p>데이터 처리 방식이 중요하게 변경되면 이 페이지의 최종 갱신일을 바꾸고 앱 또는 공식 웹사이트의 적절한 위치에서 안내합니다. 공식 웹사이트는 GitHub Pages 기반 정적 사이트이며 자체 문의 폼, 광고, 외부 분석 도구 또는 쿠키 추적을 사용하지 않습니다.</p>
+				<p>개인정보 관련 문의 또는 삭제 요청은 <a href={privacyMailto}>{SITE.supportEmail}</a>로 보내거나 <a href={withBase('/support/')}>고객지원 페이지</a>를 이용할 수 있습니다. 비밀번호, 2단계 인증번호, 복구 코드, 카드번호 또는 구매 토큰을 이메일로 보내지 마세요.</p>
+				<ul class="inline-links">
+					<li><a href={withBase('/account-deletion/danta/')}>계정 및 데이터 삭제</a></li>
+					<li><a href={withBase('/terms/danta/')}>이용약관</a></li>
+					<li><a href={withBase('/en/privacy/danta/')} hreflang="en">Privacy Policy in English</a></li>
+				</ul>
+			</section>
 		</article>
 	</div>
 </BaseLayout>
