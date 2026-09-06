@@ -90,7 +90,7 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 							</tr>
 							<tr>
 								<td>Product ID, purchase-token identifier, purchase, consumption and acknowledgement state, restore, refund, and void records</td>
-								<td>Diamond delivery, purchase verification and restoration, refund and duplicate-credit prevention</td>
+								<td>Diamond delivery, ad-removal entitlement checks, purchase verification and restoration, refund and duplicate-credit prevention</td>
 								<td>Google Play Billing, Google Play Developer API, and Firebase backend</td>
 								<td>Processed by Google for payment and verification; not sold</td>
 								<td>Raw tokens are processed temporarily; the server uses a hashed token key. Minimum integrity records are retained while their stated purpose or a legal obligation continues</td>
@@ -123,16 +123,17 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 
 			<section id="account">
 				<h2>3. Google sign-in, Firebase wallet, and Google Play purchases</h2>
+				<p>Attendance rewards use the account and campaign identifiers, reward dates, claimed-day count, grant times, diamond amounts, and wallet revisions. Cloud Firestore and Cloud Functions process these records to check daily rewards using Korea Standard Time and prevent duplicate grants. Attendance history is retained while account features are provided and deleted together with the wallet during account deletion.</p>
 				<p>When a user chooses Google sign-in, Google Sign-In and Firebase Authentication process the Google email address, Firebase UID, authentication tokens, IP address, user-agent strings, Firebase Android App ID, and Firebase user-agent device metadata. Firebase App Check may process Play Integrity attestation material and App Check tokens to verify app and request integrity and prevent abuse. Binarytech does not receive or store the user's Google password. Identifiers, full email addresses, and tokens are excluded from normal diagnostic output.</p>
 				<p>The account-linked wallet stores the Firebase UID, diamond balance, adjustment debt, state revision, paid cosmetic ownership, and spend-operation details. The backend is authoritative and uses account-generation checks, revisions, and idempotent operation IDs to prevent duplicate credit, duplicate spending, and stale-account access.</p>
-				<p>Google Play Billing provides four diamond packs. Paid cosmetics are purchased with server-authoritative diamonds rather than directly with cash. Purchase processing may use the package name, product and purchase-option IDs, purchase token, purchase state, consumption and acknowledgement state, completion time, and an obfuscated account binding.</p>
+				<p>Google Play Billing provides four diamond packs and a one-time Remove Ads purchase. Remove Ads cannot be purchased with diamonds. Once a valid entitlement is verified, banner, end-of-game, and retry ads are not shown. Paid cosmetics are purchased with server-authoritative diamonds rather than directly with cash. Purchase processing may use the package name, product and purchase-option IDs, purchase token, purchase state, consumption and acknowledgement state, completion time, and an obfuscated account binding.</p>
 				<p>The raw purchase token is used only as needed for Google Play verification. The server stores a SHA-256 token key instead of the raw token. Binarytech does not receive card numbers, payment passwords, or other Google Play payment credentials.</p>
 				<p>Firebase states that authentication IP logs may be retained for a few weeks. Other authentication information is retained until the developer initiates deletion of the user, after which removal from live and backup systems may take up to 180 days under Firebase's published policy.</p>
 			</section>
 
 			<section id="ads">
 				<h2>4. Advertising and UMP consent</h2>
-				<p>The app uses Google Mobile Ads (AdMob) for banner ads on the Home and Library screens and limited interstitial ads when returning to Home after a normal result. It does not use rewarded ads or app-open ads.</p>
+				<p>The app uses Google Mobile Ads (AdMob) for banner ads on the Home and Library screens and interstitial ads when returning to Home after a normal result or starting another round. End-of-game ads are limited using a threshold of two normal rounds or four one-minute rounds; actual display depends on ad availability and consent. These ads are not shown once a valid Remove Ads entitlement is verified. The app does not use rewarded ads or app-open ads.</p>
 				<p>The Google Mobile Ads SDK may automatically collect and share IP address, app launches, taps and ad interactions, app and SDK diagnostics, Android advertising ID, app set ID, and other applicable device/account identifiers for advertising, measurement, analytics, and fraud prevention. Google states that this data is encrypted in transit with TLS.</p>
 				<p>Where required, Google's User Messaging Platform presents consent and privacy options. Ad personalization or limited ads depend on applicable law, the user's consent state, and Google settings. Users can reset or delete the Android advertising ID through Android settings.</p>
 				<p><strong>The app does not use Firebase Analytics or Firebase Crashlytics.</strong> This does not exclude interaction and diagnostic data processed by the Google Mobile Ads SDK for its own stated purposes.</p>
@@ -155,6 +156,7 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 				<ul>
 					<li><strong>Local data:</strong> retained until app data is cleared or the app is removed. Recent results are limited to 20.</li>
 					<li><strong>Firebase account and wallet:</strong> retained while the connected account is active and deleted when account deletion is requested.</li>
+					<li><strong>Attendance and Remove Ads:</strong> reward history and account-linked ad-removal entitlements and processing records are retained while account features are provided and removed during account deletion. Google Play maintains its own purchase records separately.</li>
 					<li><strong>Purchase integrity:</strong> duplicate-notification records are cleared on a 30-day basis. Minimum hashed purchase, refund, void, fraud-prevention, and security records may remain until their purpose or a legal obligation ends.</li>
 					<li><strong>Advertising:</strong> governed by Google policy and the user's consent and advertising-ID controls.</li>
 					<li><strong>Support email:</strong> retained only as needed for the inquiry and related obligations.</li>

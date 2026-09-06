@@ -6,7 +6,7 @@ export const SITE = {
 		'바이너리테크는 게임과 앱을 기획·개발·운영하는 독립 개발 스튜디오입니다.',
 	supportEmail: 'binarytech804@gmail.com',
 	contentReviewedAt: '2026-09-01',
-	legalUpdatedAt: '2026-09-01',
+	legalUpdatedAt: '2026-09-06',
 	legalEffectiveAt: '앱 최초 공개일',
 	legalEffectiveAtEn: 'First public release of the app',
 	repositoryName: 'binarytechkr.github.io',
