@@ -2,24 +2,24 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { SITE, mailtoLink, withBase } from '../../../../lib/site';
 
-const deletionMailto = mailtoLink('[Danta Championship] Account deletion request')!;
+const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion request')!;
 ---
 
 <BaseLayout
 	lang="en"
-	title="Danta Championship Account and Data Deletion"
-	description="How to request deletion of a Danta Championship account and linked data in the app or by email without signing in, plus local-data deletion steps."
+	title="Daily Trader: Stock Game Account and Data Deletion"
+	description="How to request deletion of a Daily Trader: Stock Game account and linked data in the app or by email without signing in, plus local-data deletion steps."
 	canonicalPath="/en/account-deletion/danta/"
 	alternatePath="/account-deletion/danta/"
 >
 	<header class="legal-hero">
 		<div class="shell">
 			<p class="legal-label">ACCOUNT &amp; DATA DELETION</p>
-			<h1>Danta Championship<br />Account and Data Deletion</h1>
-			<p>This page explains how to delete a Danta Championship account and its linked data from Binarytech. It is publicly available without signing in to the app.</p>
+			<h1>Daily Trader: Stock Game<br />Account and Data Deletion</h1>
+			<p>This page explains how to delete a Daily Trader: Stock Game account and its linked data from Binarytech. It is publicly available without signing in to the app.</p>
 			<div class="legal-meta">
 				<span>Last updated: {SITE.legalUpdatedAt}</span>
-				<span>Product status: Android internal testing</span>
+				<span>Scope: Android · iOS release planned</span>
 				<span>Android package: com.binarytech.dantagame</span>
 			</div>
 		</div>
@@ -29,6 +29,7 @@ const deletionMailto = mailtoLink('[Danta Championship] Account deletion request
 		<nav class="legal-toc" aria-label="Account deletion contents">
 			<strong>Contents</strong>
 			<ol>
+				<li><a href="#ios">iOS accounts, purchases, and local data</a></li>
 				<li><a href="#request">Ways to request deletion</a></li>
 				<li><a href="#in-app">In-app path</a></li>
 				<li><a href="#web">External web path</a></li>
@@ -41,6 +42,15 @@ const deletionMailto = mailtoLink('[Danta Championship] Account deletion request
 		</nav>
 
 		<article class="legal-content">
+			<section id="ios">
+				<h2>iOS accounts, purchases, and local data</h2>
+				<p>An iOS version with sign-in, in-app purchases, and ads is planned. Account features will include an in-app path to initiate account deletion. The Google account and Google Play instructions below describe the current Android version; the actual iOS sign-in methods and menus will be reflected here before release.</p>
+				<p>Deletion covers the game's app account and linked wallet, cosmetics, and authentication data, not the Google or Apple Account itself. If Sign in with Apple is offered, its connection will also be revoked during app account deletion. Uninstalling, signing out, or disconnecting sign-in in Apple settings alone does not complete an app account deletion request.</p>
+				<p>If you cannot use the app, use the email path below. Include <strong>that you use iOS, your sign-in method, and the email address linked to the app account</strong>, including the private relay address if you used Hide My Email. Do not send passwords, authentication codes, raw receipts, or purchase tokens.</p>
+				<p>Minimum App Store transaction identifiers and status records may be segregated only as needed for refunds, duplicate-credit prevention, security, or legal obligations, then deleted or irreversibly de-identified. Apple's own account and purchase records follow the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>. Account deletion is not an automatic refund; use <a href="https://support.apple.com/118223">Apple's refund process</a> separately.</p>
+				<p>Remove local iPhone data through <strong>Settings → General → iPhone Storage → Daily Trader: Stock Game → Delete App</strong>. <strong>Offload App</strong> or removing the Home Screen icon leaves the data in place. Manage device or iCloud backup copies separately in Apple's backup settings. Server account deletion and local data deletion are separate actions.</p>
+			</section>
+
 			<section id="request">
 				<h2>1. Ways to request deletion</h2>
 				<p>If you linked a Google account, you can request deletion from inside the app. If you no longer have the app or cannot open it, you can request deletion by email from this page without signing in or reinstalling the app.</p>
@@ -62,22 +72,22 @@ const deletionMailto = mailtoLink('[Danta Championship] Account deletion request
 			<section id="in-app">
 				<h2>2. In-app deletion path</h2>
 				<ol class="step-list">
-					<li><span>1</span><div><strong>Open Settings</strong><p>Open Danta Championship settings and select <strong>Account &amp; Purchases</strong>.</p></div></li>
+					<li><span>1</span><div><strong>Open Settings</strong><p>Open Daily Trader: Stock Game settings and select <strong>Account &amp; Purchases</strong>.</p></div></li>
 					<li><span>2</span><div><strong>Select Delete Account</strong><p>Review the connected Google account and select <strong>Delete Account</strong>.</p></div></li>
 					<li><span>3</span><div><strong>Re-authenticate and review</strong><p>Complete recent Google re-authentication if requested, and review what will be deleted and what local or minimum transaction-integrity data is handled separately.</p></div></li>
 					<li><span>4</span><div><strong>Confirm the request</strong><p>After final confirmation, account-linked wallet and purchase access is retired and server deletion begins. The app lets you check or safely retry the same request.</p></div></li>
 				</ol>
-				<p>This deletes the Danta Championship app account created through Firebase Authentication. It does not delete the user's Google Account.</p>
+				<p>This deletes the Daily Trader: Stock Game app account created through Firebase Authentication. It does not delete the user's Google Account.</p>
 			</section>
 
 			<section id="web">
 				<h2>3. External deletion request without sign-in</h2>
 				<p>Use the email path below without signing in to the app. The button opens an email draft with the request subject filled in.</p>
 				<p><a class="button" href={deletionMailto}>Compose account deletion request</a></p>
-				<p><strong>Recipient:</strong> <a href={deletionMailto}>{SITE.supportEmail}</a><br /><strong>Suggested subject:</strong> [Danta Championship] Account deletion request</p>
+				<p><strong>Recipient:</strong> <a href={deletionMailto}>{SITE.supportEmail}</a><br /><strong>Suggested subject:</strong> [Daily Trader: Stock Game] Account deletion request</p>
 				<h3>Include only:</h3>
 				<ul>
-					<li>App name: Danta Championship</li>
+					<li>App name: Daily Trader: Stock Game</li>
 					<li>The Google email address used to link the app account</li>
 					<li>A clear statement that you request deletion of the app account and linked data</li>
 					<li>A different reply email address, if needed</li>
@@ -96,7 +106,7 @@ const deletionMailto = mailtoLink('[Danta Championship] Account deletion request
 						<tbody>
 							<tr><td>Sign out</td><td>Disconnects the account from the current device.</td><td>The account, wallet, and purchase data remain and can be accessed after signing in again.</td></tr>
 							<tr><td>Temporary restriction</td><td>May limit access for security or operational reasons.</td><td>This is not deletion and does not automatically erase data.</td></tr>
-							<tr><td>Delete account</td><td>Permanently deletes the Danta Championship app account.</td><td>Linked data is deleted, except minimum segregated records required for refunds, security, fraud prevention, or legal compliance.</td></tr>
+							<tr><td>Delete account</td><td>Permanently deletes the Daily Trader: Stock Game app account.</td><td>Linked data is deleted, except minimum segregated records required for refunds, security, fraud prevention, or legal compliance.</td></tr>
 						</tbody>
 					</table>
 				</section>
@@ -133,7 +143,7 @@ const deletionMailto = mailtoLink('[Danta Championship] Account deletion request
 				<h2>7. Delete local game data separately</h2>
 				<p>Free-game progress, recent results, achievements, free cosmetics, and preferences remain on the device and are not uploaded to the connected account. Server account deletion therefore does not clear local game data.</p>
 				<ol class="step-list">
-					<li><span>1</span><div><strong>Clear app storage</strong><p>In Android, open Settings → Apps → Danta Championship → Storage, then select Clear data or the equivalent option.</p></div></li>
+					<li><span>1</span><div><strong>Clear app storage</strong><p>In Android, open Settings → Apps → Daily Trader: Stock Game → Storage, then select Clear data or the equivalent option.</p></div></li>
 					<li><span>2</span><div><strong>Or uninstall the app</strong><p>Removing the app also removes its Android-managed app-private local data.</p></div></li>
 				</ol>
 				<p>This removes the local profile, tutorial state, completion count, recent results, free achievements and cosmetics, display, chart and language preferences, and local recovery state. The data may not be recoverable.</p>
@@ -142,7 +152,7 @@ const deletionMailto = mailtoLink('[Danta Championship] Account deletion request
 			<section id="process">
 				<h2>8. Processing and contact</h2>
 				<ol>
-					<li>Binarytech identifies the Danta Championship account and requests only the minimum verification information needed.</li>
+					<li>Binarytech identifies the Daily Trader: Stock Game account and requests only the minimum verification information needed.</li>
 					<li>After verification, account access and purchase authority are retired and deletion of the Firebase account and linked data begins.</li>
 					<li>If a retention exception applies, it is separated by purpose. Binarytech replies with the request status and expected completion time.</li>
 					<li>Binarytech confirms completion or any further action required by email.</li>

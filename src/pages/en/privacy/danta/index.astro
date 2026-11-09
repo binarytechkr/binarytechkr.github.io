@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { SITE, mailtoLink, withBase } from '../../../../lib/site';
 
-const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
+const privacyMailto = mailtoLink('[Daily Trader: Stock Game] Privacy inquiry')!;
 ---
 
 <BaseLayout
 	lang="en"
-	title="Danta Championship Privacy Policy"
-	description="How Danta Championship handles local game data, Google sign-in, Firebase wallet data, Google Play purchases, AdMob data, retention, and deletion."
+	title="Daily Trader: Stock Game Privacy Policy"
+	description="Android and iOS privacy policy for Daily Trader: Stock Game: accounts, wallet, Google Play and App Store purchases, ad tracking consent, and data deletion."
 	canonicalPath="/en/privacy/danta/"
 	alternatePath="/privacy/danta/"
 	type="article"
@@ -16,8 +16,8 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 	<header class="legal-hero">
 		<div class="shell">
 			<p class="legal-label">PRIVACY POLICY</p>
-			<h1>Danta Championship<br />Privacy Policy</h1>
-			<p>Binarytech explains below what data Danta Championship processes, why it is processed, where it is stored, and how users can delete it.</p>
+			<h1>Daily Trader: Stock Game<br />Privacy Policy</h1>
+			<p>Binarytech explains below what data Daily Trader: Stock Game processes, why it is processed, where it is stored, and how users can delete it.</p>
 			<div class="legal-meta">
 				<span>Last updated: {SITE.legalUpdatedAt}</span>
 				<span>Effective: {SITE.legalEffectiveAtEn}</span>
@@ -31,6 +31,7 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 			<strong>Contents</strong>
 			<ol>
 				<li><a href="#scope">Scope and operator</a></li>
+				<li><a href="#ios">Planned iOS features and data</a></li>
 				<li><a href="#summary">Data summary</a></li>
 				<li><a href="#account">Account and purchases</a></li>
 				<li><a href="#ads">Ads and consent</a></li>
@@ -44,23 +45,40 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 		<article class="legal-content">
 			<div class="notice-box">
 				<strong>Free play does not require sign-in.</strong>
-				<p>Game progress and preferences are stored on the device by default. Data is sent to Google or Firebase only when the relevant account, purchase, restore, or advertising feature is used.</p>
+				<p>Game progress and preferences are stored on the device by default. Relevant account, purchase, restore, and advertising data is processed by Google, Firebase, or Apple for the applicable platform. An iOS version with sign-in, in-app purchases, and ads is planned; the iOS provisions apply when the relevant feature becomes available.</p>
 			</div>
 
 			<section id="scope">
 				<h2>1. Scope and operator</h2>
-				<p>This policy applies to <strong>Danta Championship</strong>, also published in Korean as 천하제일 단타대회, an Android game operated by Binarytech. All stocks, prices, and returns in the game are fictional. The game does not provide real trading, investment advice, cash rewards, withdrawal, exchange, or cash-out.</p>
+				<p>This policy applies to the Android and planned iOS versions of <strong>Daily Trader: Stock Game</strong> (오늘도 단타), operated by Binarytech and previously named Danta Championship (천하제일 단타대회). All stocks, prices, and returns in the game are fictional. The game does not provide real trading, investment advice, cash rewards, withdrawal, exchange, or cash-out.</p>
 				<ul>
 					<li><strong>Operator:</strong> Binarytech (바이너리테크)</li>
-					<li><strong>App:</strong> Danta Championship (천하제일 단타대회)</li>
+					<li><strong>App:</strong> Daily Trader: Stock Game (오늘도 단타)</li>
 					<li><strong>Android package:</strong> com.binarytech.dantagame</li>
 					<li><strong>Privacy contact:</strong> <a href={privacyMailto}>{SITE.supportEmail}</a></li>
 				</ul>
 				<p>Linking a Google account is optional. It is used for the server-side diamond wallet, paid cosmetics, purchase verification and restoration, and account deletion. Local game progress is not uploaded to the linked account.</p>
 			</section>
 
+			<section id="ios">
+				<h2>Planned iOS features and data processing</h2>
+				<p>This section describes the planned iOS version with sign-in, in-app purchases, and ads; it does not announce availability. Google Play tokens, Play Integrity, and Android backup exclusions apply only to Android. The iOS sign-in methods and actual data practices will be finalized and reflected here before release.</p>
+				<h3>Sign-in and accounts</h3>
+				<p>When you connect an account on iOS, the offered sign-in method may provide a provider account identifier, email address, authentication tokens, and Firebase UID for authentication, the server wallet, purchase verification and restoration, and account deletion. If Sign in with Apple is offered, the Apple-provided identifier and email address, including a private relay address when Hide My Email is selected, serve those same purposes. Binarytech does not collect account passwords. Account deletion will remove linked authentication and wallet data and revoke the Sign in with Apple connection where used.</p>
+				<h3>App Store in-app purchases</h3>
+				<p>Diamond packs and a one-time Remove Ads product are planned through Apple in-app purchases. Apple and the Firebase backend may process product IDs, transaction and original transaction IDs, purchase time and status, signed transaction data or receipts, and an account-linking identifier to verify or restore purchases, grant diamonds or ad removal, and handle refunds, revocations, and duplicate-credit prevention. Minimum integrity records may be segregated until their purpose or a legal obligation ends, then deleted or irreversibly de-identified.</p>
+				<p>Binarytech does not collect card numbers, payment credentials, or Apple Account passwords. Apple maintains its own payment records under its policies. Deleting an app account or uninstalling the app does not automatically refund purchases; see <a href="https://support.apple.com/118223">Apple's refund instructions</a>. Purchase transfers or restoration between Google Play and the App Store are not automatically guaranteed.</p>
+				<h3>Advertising and App Tracking Transparency (ATT)</h3>
+				<p>When AdMob ads are offered on iOS, the SDK may process IP addresses and approximate location inferred from them, ad views and interactions, app and SDK diagnostics, and device or app identifiers for advertising, measurement, and fraud prevention. Tracking across other companies' apps or websites as defined by Apple, or accessing the advertising identifier (IDFA), requires prior ATT permission. If permission is not granted, that tracking and IDFA access will not occur. Free gameplay remains available, and ads that do not use tracking may still appear.</p>
+				<p>Change ATT choices in <strong>Settings → Privacy &amp; Security → Tracking</strong>. Regional advertising consent through UMP is separate from ATT; each required consent will be obtained. Refusing tracking does not stop all advertising data processing. See <a href="https://developer.apple.com/app-store/user-privacy-and-data-use/">Apple's tracking guidance</a> and <a href="https://developers.google.com/admob/ios/privacy/data-disclosure">AdMob's iOS data disclosure</a>.</p>
+				<h3>Local data and deletion</h3>
+				<p>iOS game progress and preferences also use app-private device storage. Remove local data through <strong>Settings → General → iPhone Storage → Daily Trader: Stock Game → Delete App</strong>. <strong>Offload App</strong> or removing the Home Screen icon does not delete this data. Manage any copies in device or iCloud backups separately through Apple's backup settings; Android backup exclusions are not a guarantee about iOS backups.</p>
+				<p>The iOS version offering accounts will also offer an in-app path to initiate account deletion. The <a href={withBase('/en/account-deletion/danta/')}>account and data deletion page</a> explains email requests when the app is unavailable and retention exceptions. Apple's separate data processing follows the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+			</section>
+
 			<section id="summary">
 				<h2>2. Data processing summary</h2>
+				<p>The following table and Google sign-in and purchase details describe the current Android configuration. See the <a href="#ios">iOS section</a> for platform differences and planned features.</p>
 				<section class="table-scroll" aria-label="Data processing summary table" tabindex="0">
 					<table>
 						<thead>
@@ -161,7 +179,7 @@ const privacyMailto = mailtoLink('[Danta Championship] Privacy inquiry')!;
 					<li><strong>Advertising:</strong> governed by Google policy and the user's consent and advertising-ID controls.</li>
 					<li><strong>Support email:</strong> retained only as needed for the inquiry and related obligations.</li>
 				</ul>
-				<p>Delete an app account through <strong>Settings → Account &amp; Purchases → Delete Account</strong>, or use the public <a href={withBase('/en/account-deletion/danta/')}>account and data deletion page</a> without signing in. To delete local progress, clear Danta Championship's storage in Android settings or uninstall the app.</p>
+				<p>Delete an app account through <strong>Settings → Account &amp; Purchases → Delete Account</strong>, or use the public <a href={withBase('/en/account-deletion/danta/')}>account and data deletion page</a> without signing in. To delete local progress, clear Daily Trader: Stock Game's storage in Android settings or uninstall the app.</p>
 				<p>Signing out, temporarily disabling access, and deleting an account are different actions. Account deletion removes account-linked data. Minimum records may be segregated and retained only when required for refunds, security, fraud prevention, or legal compliance. Account deletion does not automatically refund a Google Play purchase.</p>
 			</section>
 
