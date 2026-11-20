@@ -18,8 +18,8 @@ const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion r
 			<h1>Daily Trader: Stock Game<br />Account and Data Deletion</h1>
 			<p>This page explains how to delete a Daily Trader: Stock Game account and its linked data from Binarytech. It is publicly available without signing in to the app.</p>
 			<div class="legal-meta">
-				<span>Last updated: {SITE.legalUpdatedAt}</span>
-				<span>Scope: Android · iOS release planned</span>
+				<span>Last updated: 2026-11-21</span>
+				<span>Scope: Android · iOS</span>
 				<span>Android package: com.binarytech.dantagame</span>
 			</div>
 		</div>
@@ -31,7 +31,7 @@ const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion r
 			<ol>
 				<li><a href="#ios">iOS accounts, purchases, and local data</a></li>
 				<li><a href="#request">Ways to request deletion</a></li>
-				<li><a href="#in-app">In-app path</a></li>
+				<li><a href="#in-app">Android steps</a></li>
 				<li><a href="#web">External web path</a></li>
 				<li><a href="#difference">Sign-out versus deletion</a></li>
 				<li><a href="#deleted">Data deleted</a></li>
@@ -44,8 +44,8 @@ const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion r
 		<article class="legal-content">
 			<section id="ios">
 				<h2>iOS accounts, purchases, and local data</h2>
-				<p>An iOS version with sign-in, in-app purchases, and ads is planned. Account features will include an in-app path to initiate account deletion. The Google account and Google Play instructions below describe the current Android version; the actual iOS sign-in methods and menus will be reflected here before release.</p>
-				<p>Deletion covers the game's app account and linked wallet, cosmetics, and authentication data, not the Google or Apple Account itself. If Sign in with Apple is offered, its connection will also be revoked during app account deletion. Uninstalling, signing out, or disconnecting sign-in in Apple settings alone does not complete an app account deletion request.</p>
+				<p>On iOS, sign in to the app account you want to delete, then go to <strong>Settings → Account and Purchases → Delete Account</strong>. In the <strong>Request Account Deletion</strong> dialog, read the notice and tap <strong>Request Deletion</strong>. If you signed in with Apple, follow the prompts to verify your Apple sign-in again. If deletion is still in progress, use <strong>Check deletion status</strong>. The detailed Google account and Google Play instructions below apply to Android.</p>
+				<p>Deletion covers the game's app account and linked wallet, cosmetics, and authentication data, not the Google or Apple Account itself. If you signed in with Apple, the app attempts to revoke that connection as part of the deletion request. Uninstalling, signing out, or disconnecting sign-in in Apple settings alone does not complete an app account deletion request.</p>
 				<p>If you cannot use the app, use the email path below. Include <strong>that you use iOS, your sign-in method, and the email address linked to the app account</strong>, including the private relay address if you used Hide My Email. Do not send passwords, authentication codes, raw receipts, or purchase tokens.</p>
 				<p>Minimum App Store transaction identifiers and status records may be segregated only as needed for refunds, duplicate-credit prevention, security, or legal obligations, then deleted or irreversibly de-identified. Apple's own account and purchase records follow the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>. Account deletion is not an automatic refund; use <a href="https://support.apple.com/118223">Apple's refund process</a> separately.</p>
 				<p>Remove local iPhone data through <strong>Settings → General → iPhone Storage → Daily Trader: Stock Game → Delete App</strong>. <strong>Offload App</strong> or removing the Home Screen icon leaves the data in place. Manage device or iCloud backup copies separately in Apple's backup settings. Server account deletion and local data deletion are separate actions.</p>
@@ -53,12 +53,12 @@ const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion r
 
 			<section id="request">
 				<h2>1. Ways to request deletion</h2>
-				<p>If you linked a Google account, you can request deletion from inside the app. If you no longer have the app or cannot open it, you can request deletion by email from this page without signing in or reinstalling the app.</p>
+				<p>If you linked an app account, you can request deletion from inside the app. If you no longer have the app or cannot open it, you can request deletion by email from this page without signing in or reinstalling the app.</p>
 				<div class="deletion-actions">
 					<div>
 						<strong>If you can use the app</strong>
-						<p>Settings → Account &amp; Purchases → Delete Account</p>
-						<a class="text-link" href="#in-app">View the in-app steps <span aria-hidden="true">→</span></a>
+						<p>Settings → Account and Purchases → Delete Account</p>
+						<a class="text-link" href="#ios">iOS steps</a> · <a class="text-link" href="#in-app">Android steps <span aria-hidden="true">→</span></a>
 					</div>
 					<div>
 						<strong>If you cannot use the app</strong>
@@ -66,11 +66,11 @@ const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion r
 						<a class="button" href={deletionMailto}>Email an account deletion request</a>
 					</div>
 				</div>
-				<p>If you played without linking a Google account, there may be no server account to delete. Use the <a href="#local">local-data deletion steps</a> instead.</p>
+				<p>If you played without linking an app account, there may be no server account to delete. Use the <a href="#local">local-data deletion steps</a> instead.</p>
 			</section>
 
 			<section id="in-app">
-				<h2>2. In-app deletion path</h2>
+				<h2>2. In-app deletion on Android</h2>
 				<ol class="step-list">
 					<li><span>1</span><div><strong>Open Settings</strong><p>Open Daily Trader: Stock Game settings and select <strong>Account &amp; Purchases</strong>.</p></div></li>
 					<li><span>2</span><div><strong>Select Delete Account</strong><p>Review the connected Google account and select <strong>Delete Account</strong>.</p></div></li>
@@ -88,7 +88,7 @@ const deletionMailto = mailtoLink('[Daily Trader: Stock Game] Account deletion r
 				<h3>Include only:</h3>
 				<ul>
 					<li>App name: Daily Trader: Stock Game</li>
-					<li>The Google email address used to link the app account</li>
+					<li>Your platform (Android or iOS), sign-in method, and the email address linked to the app account (the private relay address if you used Apple’s Hide My Email)</li>
 					<li>A clear statement that you request deletion of the app account and linked data</li>
 					<li>A different reply email address, if needed</li>
 				</ul>
